@@ -32,6 +32,9 @@ class RouteGenerator {
       case PhoneVerificationOtpView.routeName:
         return pageRoute(const PhoneVerificationOtpView());
 
+      case VerificationSuccessfulView.routeName:
+        return pageRoute(const VerificationSuccessfulView());
+
       default:
         return errorRoute();
     }

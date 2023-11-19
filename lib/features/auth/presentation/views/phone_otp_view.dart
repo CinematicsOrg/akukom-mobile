@@ -1,5 +1,6 @@
 import 'package:akukom/cores/components/components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
+import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
 import 'package:flutter/material.dart';
@@ -70,6 +71,7 @@ class __VerifyPhoneFormState extends State<_VerifyPhoneForm> {
   @override
   Widget build(BuildContext context) {
     return OTPTextField(
+      controller: _otpController,
       length: 4,
       otpFieldStyle: OtpFieldStyle(
         focusBorderColor: kcBlack,
@@ -89,7 +91,10 @@ class __VerifyPhoneFormState extends State<_VerifyPhoneForm> {
       contentPadding: EdgeInsets.symmetric(vertical: sp(20)),
       textFieldAlignment: MainAxisAlignment.spaceAround,
       fieldStyle: FieldStyle.box,
-      onCompleted: (pin) {},
+      onCompleted: (pin) {
+        AppRouter.instance
+            .navigateTo(VerificationSuccessfulView.routeName);
+      },
     );
   }
 }
