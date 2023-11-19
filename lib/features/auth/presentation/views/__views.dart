@@ -6,3 +6,4 @@ export 'login_view.dart';
 export 'forgot_password_view.dart';
 export 'email_otp_view.dart';
 export 'new_password_view.dart';
+export 'password_reset_successful_view.dart';

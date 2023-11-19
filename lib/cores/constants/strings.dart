@@ -92,7 +92,7 @@ class AppStrings {
 
   // Password Reset Success Screen
   static const String passwordResetSuccessful =
-      'Password reset successful! You can now log in with your new password.';
+      'Password reset successful!';
   static const String youHaveSuccessfully =
       'You have successfully reset your password. You can now log in with your new password.';
   static const String continueToLogin = 'Continue to login';

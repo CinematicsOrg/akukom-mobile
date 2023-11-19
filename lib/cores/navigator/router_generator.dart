@@ -47,6 +47,9 @@ class RouteGenerator {
       case NewPasswordView.routeName:
         return pageRoute(const NewPasswordView());
 
+      case PasswordResetSuccessfulView.routeName:
+        return pageRoute(const PasswordResetSuccessfulView());
+
       default:
         return errorRoute();
     }

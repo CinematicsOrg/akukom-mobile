@@ -68,7 +68,7 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
         Button(
           text: AppStrings.changePassword,
           onTap: () {
-            Navigator.pushNamed(context, CompleteCreateAccountView.routeName);
+            Navigator.pushNamed(context, PasswordResetSuccessfulView.routeName);
           },
         ),
       ],
