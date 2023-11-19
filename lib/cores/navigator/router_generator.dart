@@ -26,6 +26,30 @@ class RouteGenerator {
       case CreateAccountView.routeName:
         return pageRoute(const CreateAccountView());
 
+      case CompleteCreateAccountView.routeName:
+        return pageRoute(const CompleteCreateAccountView());
+
+      case PhoneVerificationOtpView.routeName:
+        return pageRoute(const PhoneVerificationOtpView());
+
+      case VerificationSuccessfulView.routeName:
+        return pageRoute(const VerificationSuccessfulView());
+
+      case LoginView.routeName:
+        return pageRoute(const LoginView());
+
+      case ForgotPasswordView.routeName:
+        return pageRoute(const ForgotPasswordView());
+
+      case EmalVerificationOtpView.routeName:
+        return pageRoute(const EmalVerificationOtpView());
+
+      case NewPasswordView.routeName:
+        return pageRoute(const NewPasswordView());
+
+      case PasswordResetSuccessfulView.routeName:
+        return pageRoute(const PasswordResetSuccessfulView());
+
       default:
         return errorRoute();
     }

@@ -1,3 +1,4 @@
+import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -13,16 +14,14 @@ class CreateAccountView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NormalScaffoldWidget(
-      useSingleScroll: false,
+      // useSingleScroll: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           verticalSpace(30),
           const AuthHeaderWidget(AppStrings.joinUs),
           verticalSpace(35),
-          const Expanded(
-            child: _CreateAccountForm(),
-          )
+          const _CreateAccountForm(),
         ],
       ),
     );
@@ -40,12 +39,14 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   void dispose() {
     _firstNameController.dispose();
     _lastNameController.dispose();
     _passwordController.dispose();
+    _emailController.dispose();
     super.dispose();
   }
 
@@ -64,6 +65,13 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
             hintText: AppStrings.lastName,
             title: AppStrings.lastNameHint,
             textEditingController: _lastNameController,
+          ),
+          verticalSpace(24),
+          TextFieldWidget(
+            hintText: AppStrings.email,
+            title: AppStrings.emailHint,
+            textEditingController: _emailController,
+            textInputType: TextInputType.emailAddress,
           ),
           verticalSpace(24),
           TextFieldWidget(
@@ -90,7 +98,10 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
           verticalSpace(56),
           Button(
             text: AppStrings.signUp,
-            onTap: () {},
+            onTap: () {
+              AppRouter.instance
+                  .navigateTo(CompleteCreateAccountView.routeName);
+            },
           ),
           verticalSpace(12),
           Row(
@@ -132,17 +143,17 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
               ),
             ],
           ),
-          const Expanded(
-            child: Center(
-              child: TwoSpanTextWidget(
-                AppStrings.alreadyHaveAnAccount,
-                AppStrings.login,
-                textColor: kcBlack700,
-                textColor2: kcPrimaryColor,
-                fontWeight2: FontWeight.w700,
-              ),
+          verticalSpace(30),
+          const Center(
+            child: TwoSpanTextWidget(
+              AppStrings.alreadyHaveAnAccount,
+              AppStrings.login,
+              textColor: kcBlack700,
+              textColor2: kcPrimaryColor,
+              fontWeight2: FontWeight.w700,
             ),
           ),
+          verticalSpace(40),
         ],
       ),
     );
@@ -157,6 +168,7 @@ class _SignUpOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        // height: ,
         decoration: BoxDecoration(
           border: Border.all(
             color: kcGrey400,

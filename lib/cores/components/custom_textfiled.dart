@@ -111,7 +111,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   borderSide: BorderSide(
                     color: isDarkMode
                         ? kcGrey100.withOpacity(0.7)
-                        : const Color(0xFFA0AFB4),
+                        : kcBlack,
                   ),
                   borderRadius: BorderRadius.circular(sr(8)),
                 ),

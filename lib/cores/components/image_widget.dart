@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:akukom/cores/constants/__constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -160,4 +161,3 @@ class ImageWidget extends StatelessWidget {
   }
 }
 
-enum ImageTypes { network, file, asset, profile, none, svg, memory }
