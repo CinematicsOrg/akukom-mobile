@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:akukom/features/auth/__auth.dart';
 import 'package:akukom/opening_account_screen.dart';
 import 'package:akukom/opening_screen.dart';
 import 'package:akukom/splash_screen.dart';
@@ -21,6 +22,9 @@ class RouteGenerator {
 
       case OpeningAccountScreen.routeName:
         return pageRoute(const OpeningAccountScreen());
+
+      case CreateAccountView.routeName:
+        return pageRoute(const CreateAccountView());
 
       default:
         return errorRoute();

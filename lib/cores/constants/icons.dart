@@ -8,4 +8,9 @@ class AppIcons {
   static const String bigGreenTick = '$_dir/big_green_tick.svg';
   static const String greenTick = '$_dir/green_tick.svg';
   static const String nigerianFlag = '$_dir/nigerian_flag.svg';
+
+  // create account
+  static const String apple = '$_dir/Apple.svg';
+  static const String facebook = '$_dir/Facebook.svg';
+  static const String google = '$_dir/Google.svg';
 }

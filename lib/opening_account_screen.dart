@@ -2,7 +2,9 @@ import 'package:akukom/cores/components/components.dart';
 import 'package:akukom/cores/constants/color.dart';
 import 'package:akukom/cores/constants/extensions.dart';
 import 'package:akukom/cores/constants/strings.dart';
+import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/sizer_utils.dart';
+import 'package:akukom/features/auth/__auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -74,7 +76,11 @@ class _OpeningAccountWidget extends StatelessWidget {
           verticalSpace(14),
           Button.withBorderLine(
             text: AppStrings.createAccount,
-            onTap: () {},
+            onTap: () {
+              AppRouter.instance.navigateTo(
+                CreateAccountView.routeName,
+              );
+            },
             color: kcWhite,
             textColor: kcBlack,
             borderColor: kcBlack,

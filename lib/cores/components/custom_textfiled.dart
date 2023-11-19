@@ -67,10 +67,10 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (widget.title != null)
-              TextWidget(
+              Text(
                 widget.title!,
-                fontSize: sp(16),
-                fontWeight: FontWeight.w500,
+                style: GoogleFonts.inter(
+                    color: isDarkMode ? kcWhite : kcBlack, fontSize: sp(13)),
               ),
             verticalSpace(5),
             TextFormField(
@@ -98,12 +98,12 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                 filled: true,
                 fillColor: isDarkMode
                     ? const Color(0xff272727).withOpacity(0.1)
-                    : const Color(0xFFF5F6F6),
+                    : kcWhite,
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: isDarkMode
                         ? kcGrey100.withOpacity(0.2)
-                        : const Color(0xFFF5F6F6),
+                        : const Color(0xFFD8DADC),
                   ),
                   borderRadius: BorderRadius.circular(sr(8)),
                 ),
@@ -123,7 +123,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   borderSide: BorderSide(
                     color: isDarkMode
                         ? kcGrey100.withOpacity(0.2)
-                        : const Color(0xFFF5F6F6),
+                        : const Color(0xFFD8DADC),
                   ),
                   borderRadius: BorderRadius.circular(sr(8)),
                 ),
@@ -131,17 +131,19 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   borderSide: BorderSide(
                     color: isDarkMode
                         ? kcGrey100.withOpacity(0.2)
-                        : const Color(0xFFF5F6F6),
+                        : const Color(0xFFD8DADC),
                   ),
                   borderRadius: BorderRadius.circular(sr(8)),
                 ),
                 hintText: widget.hintText,
                 hintStyle: GoogleFonts.inter(
-                  color: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .color!
-                      .withOpacity(0.3),
+                  color: isDarkMode
+                      ? Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .color!
+                          .withOpacity(0.3)
+                      : const Color(0xFF8A8A8A),
                   fontWeight: FontWeight.w500,
                   fontSize: sp(13),
                 ),

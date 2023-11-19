@@ -26,4 +26,18 @@ class AppStrings {
   static const String termsAndConditions = 'Terms & Conditions';
   static const String and = ' and ';
   static const String privacyPolicy = 'Privacy Policy';
+
+  // Create Account Screen
+  static const String joinUs = 'Join us!';
+  static const String firstName = 'First name';
+  static const String firstNameHint = 'Your First name';
+  static const String lastName = 'Last name';
+  static const String lastNameHint = 'Your Last name';
+  static const String password = 'Password';
+  static const String passwordHint = 'Must be at least 8 characters';
+  static const String iAccept = 'I accept terms and privacy policy';
+  static const String signUp = 'Sign up';
+  static const String orRegisterWith = 'Or register with';
+  static const String alreadyHaveAnAccount = 'Already have an account? ';
+  static const String login = 'Log In';
 }
