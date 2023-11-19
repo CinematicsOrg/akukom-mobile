@@ -35,6 +35,9 @@ class RouteGenerator {
       case VerificationSuccessfulView.routeName:
         return pageRoute(const VerificationSuccessfulView());
 
+      case LoginView.routeName:
+        return pageRoute(const LoginView());
+
       default:
         return errorRoute();
     }

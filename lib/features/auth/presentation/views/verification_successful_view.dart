@@ -2,6 +2,7 @@ import 'package:akukom/cores/components/components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
+import 'package:akukom/features/auth/presentation/views/__views.dart';
 import 'package:flutter/material.dart';
 
 class VerificationSuccessfulView extends StatelessWidget {
@@ -61,7 +62,7 @@ class VerificationSuccessfulView extends StatelessWidget {
                     //   predicate: (route) => false,
                     // ),
                     onTap: () => AppRouter.instance.navigateTo(
-                      VerificationSuccessfulView.routeName,
+                      LoginView.routeName,
                     ),
                   ),
                 ],

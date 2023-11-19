@@ -61,4 +61,36 @@ class AppStrings {
   static const String gladToHaveYou = 'Glad to have you with us, ';
   static const String letSetYou = 'Let\'s set you on your memory journey.';
   static const String home = 'Home';
+
+  // Login Screen
+  static const String welcomeBack = 'Welcome back!';
+  static const String forgotPassword = 'Forgot password?';
+  static const String loginIn = 'Log in';
+  static const String dontHaveAnAccount = 'Don\'t have an account? ';
+
+  // Forgot Password Screen
+  static const String forgotYourPassword = 'Forgot your password?';
+  static const String kindlyEnterYourEmail =
+      'Kindly provide your registered email address. We’ll send you an OTP to reset your password ';
+  static const String resetPassword = 'Reset password';
+  static const goBackToSignIn = 'Go back to sign in';
+
+  // Email Verification Screen
+  static const String verifyEmailAdress = 'Verify Email Address';
+  static const String kindlyEnterTheCode =
+      'Kindly enter the 4-digit OTP code sent to';
+
+  // New Password Screen
+  static const String createNewPassword = 'Create new password';
+  static const String newPassword = 'New password';
+  static const String newPasswordHint = 'Must be at least 8 characters';
+  static const String confirmPassword = 'Confirm password';
+  static const String confirmPasswordHint = 'Must be at least 8 characters';
+
+  // Password Reset Success Screen
+  static const String passwordResetSuccessful =
+      'Password reset successful! You can now log in with your new password.';
+  static const String youHaveSuccessfully =
+      'You have successfully reset your password. You can now log in with your new password.';
+  static const String continueToLogin = 'Continue to login';
 }
