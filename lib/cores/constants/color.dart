@@ -99,6 +99,7 @@ const Color kcGrey100 = Color(0xffF5F5F5);
 
 const Color kcWhite = Color(0xFFFFFFFF);
 const Color kcBlack = Color(0xFF000000);
+const Color kcBlack700 = Color(0xFF616161);
 const Color kcBackground = Color.fromARGB(255, 255, 255, 255);
 const Color kcDarkBackground = Color(0xFF121212);
 

@@ -19,7 +19,7 @@ class AppStrings {
 
   // Opening Account Screen
   static const String startJourney =
-      'Start your journey of preserving memories and celebrating heritage today!"';
+      'Start your journey of preserving memories and\ncelebrating heritage today!"';
   static const String signIn = 'Sign in';
   static const String createAccount = 'Create account';
   static const String byContinuing = 'By continuing, you agree to our ';

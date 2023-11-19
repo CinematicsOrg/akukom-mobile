@@ -12,6 +12,7 @@ class TextWidget extends StatelessWidget {
     this.fontWeight = FontWeight.w400,
     this.textAlign = TextAlign.justify,
     this.maxLines,
+    this.textStyle,
     this.overflow,
     this.decoration,
     this.height,
@@ -25,6 +26,7 @@ class TextWidget extends StatelessWidget {
     this.textColor,
     this.textAlign = TextAlign.justify,
     this.maxLines,
+    this.textStyle,
     this.overflow,
     this.decoration,
     this.height = 1,
@@ -34,6 +36,7 @@ class TextWidget extends StatelessWidget {
 
   final String text;
   final double? fontSize;
+  final TextStyle? textStyle;
   final Color? textColor;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
@@ -47,17 +50,19 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.inter(
-        fontSize: fontSize,
-        color: (textColor ?? Theme.of(context).textTheme.titleMedium!.color)!
-            .withOpacity(withOpacity ?? 1.0),
-        fontWeight: fontWeight,
-        decoration: decoration,
-        decorationColor:
-            (textColor ?? Theme.of(context).textTheme.titleMedium!.color)!
-                .withOpacity(withOpacity ?? 1.0),
-        height: height,
-      ),
+      style: textStyle ??
+          GoogleFonts.inter(
+            fontSize: fontSize,
+            color:
+                (textColor ?? Theme.of(context).textTheme.titleMedium!.color)!
+                    .withOpacity(withOpacity ?? 1.0),
+            fontWeight: fontWeight,
+            decoration: decoration,
+            decorationColor:
+                (textColor ?? Theme.of(context).textTheme.titleMedium!.color)!
+                    .withOpacity(withOpacity ?? 1.0),
+            height: height,
+          ),
       textAlign: textAlign,
       overflow: overflow,
       softWrap: true,
