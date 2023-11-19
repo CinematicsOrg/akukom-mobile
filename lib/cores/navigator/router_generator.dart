@@ -26,6 +26,12 @@ class RouteGenerator {
       case CreateAccountView.routeName:
         return pageRoute(const CreateAccountView());
 
+      case CompleteCreateAccountView.routeName:
+        return pageRoute(const CompleteCreateAccountView());
+
+      case PhoneVerificationOtpView.routeName:
+        return pageRoute(const PhoneVerificationOtpView());
+
       default:
         return errorRoute();
     }
