@@ -78,13 +78,17 @@ class __LoginFormState extends State<_LoginForm> {
         verticalSpace(16),
         Align(
           alignment: Alignment.bottomRight,
-          child: TextWidget(
-            AppStrings.forgotPassword,
-            fontSize: sp(14),
-            decoration: TextDecoration.underline,
-            fontWeight: FontWeight.w400,
-            textAlign: TextAlign.end,
-            textColor: kcPrimaryColor,
+          child: GestureDetector(
+            onTap: () =>
+                AppRouter.instance.navigateTo(ForgotPasswordView.routeName),
+            child: TextWidget(
+              AppStrings.forgotPassword,
+              fontSize: sp(14),
+              decoration: TextDecoration.underline,
+              fontWeight: FontWeight.w400,
+              textAlign: TextAlign.end,
+              textColor: kcPrimaryColor,
+            ),
           ),
         ),
         verticalSpace(81),

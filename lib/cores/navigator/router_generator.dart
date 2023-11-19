@@ -38,6 +38,15 @@ class RouteGenerator {
       case LoginView.routeName:
         return pageRoute(const LoginView());
 
+      case ForgotPasswordView.routeName:
+        return pageRoute(const ForgotPasswordView());
+
+      case EmalVerificationOtpView.routeName:
+        return pageRoute(const EmalVerificationOtpView());
+
+      case NewPasswordView.routeName:
+        return pageRoute(const NewPasswordView());
+
       default:
         return errorRoute();
     }

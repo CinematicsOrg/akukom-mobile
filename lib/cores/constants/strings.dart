@@ -86,6 +86,9 @@ class AppStrings {
   static const String newPasswordHint = 'Must be at least 8 characters';
   static const String confirmPassword = 'Confirm password';
   static const String confirmPasswordHint = 'Must be at least 8 characters';
+  static const String passRequirement =
+      'Password must be at least 6 characters and should contain numbers, letters and a special character.';
+  static const String changePassword = 'Change password';
 
   // Password Reset Success Screen
   static const String passwordResetSuccessful =
