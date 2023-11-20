@@ -13,4 +13,8 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
       email: email,
     ));
   }
+
+  void reset() {
+    emit(ForgotPasswordState.initial());
+  }
 }

@@ -28,7 +28,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           failures: failure,
         ));
       },
-      (data) {
+      (data) async {
         emit(state.copyWith(
           status: SignupStatus.success,
           signupEntity: data,
@@ -36,4 +36,5 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       },
     );
   }
+
 }

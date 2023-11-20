@@ -36,9 +36,13 @@ class SignupCubit extends Cubit<SignupCubitState> {
     ));
   }
 
-  void agreeChanged(bool value) {
+  void agreeChanged(bool? value) {
     emit(state.copyWith(
       agree: value,
     ));
+  }
+
+  void reset() {
+    emit(SignupCubitState.initial());
   }
 }

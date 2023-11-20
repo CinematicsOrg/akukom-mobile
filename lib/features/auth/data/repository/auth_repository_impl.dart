@@ -12,17 +12,22 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<Failures, BaseEntity>> changePassword(RequestParam param) {
-    //     final action = remoteDataSource.getNigerianBanks();
+    final action = remoteDataSource.changePassword(
+      param,
+    );
 
-    // final repoTryCatchHelper = RepoTryCatchHelper<GetNigeriaBankModel>();
-    // return await repoTryCatchHelper.tryAction(() => action);
-    throw UnimplementedError();
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
   }
 
   @override
   Future<Either<Failures, BaseEntity>> checkPhoneUsage(RequestParam param) {
-    // TODO: implement checkPhoneUsage
-    throw UnimplementedError();
+    final action = remoteDataSource.checkPhoneUsage(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
   }
 
   @override
@@ -38,15 +43,23 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<Failures, BaseEntity>> forgotPasswordOtp(RequestParam param) {
-    // TODO: implement forgotPasswordOtp
-    throw UnimplementedError();
+    final action = remoteDataSource.forgotPasswordOtp(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
   }
 
   @override
   Future<Either<Failures, BaseEntity>> forgotPasswordVerificationOtp(
       RequestParam param) {
-    // TODO: implement forgotPasswordVerificationOtp
-    throw UnimplementedError();
+    final action = remoteDataSource.forgotPasswordVerificationOtp(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
   }
 
   @override
@@ -61,8 +74,12 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<Failures, BaseEntity>> refreshToken(RequestParam param) {
-    // TODO: implement refreshToken
-    throw UnimplementedError();
+    final action = remoteDataSource.refreshToken(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
   }
 
   @override
@@ -85,22 +102,4 @@ class AuthRepositoryImpl extends AuthRepository {
     final repoTryCatchHelper = RepoTryCatchHelper<BaseAuthModel>();
     return await repoTryCatchHelper.tryAction(() => action);
   }
-
-  // @override
-  // Future<Either<Failures, GetNigeriaBankModel>> getNigerianBanks() async {
-  //   final action = remoteDataSource.getNigerianBanks();
-
-  //   final repoTryCatchHelper = RepoTryCatchHelper<GetNigeriaBankModel>();
-  //   return await repoTryCatchHelper.tryAction(() => action);
-  // }
-
-  // @override
-  // Future<Either<Failures, ResolveBankModel>> resolveBankAccount(
-  //   RequestParam requestParam,
-  // ) async {
-  //   final action = remoteDataSource.resolveBankAccount(requestParam);
-
-  //   final repoTryCatchHelper = RepoTryCatchHelper<ResolveBankModel>();
-  //   return await repoTryCatchHelper.tryAction(() => action);
-  // }
 }

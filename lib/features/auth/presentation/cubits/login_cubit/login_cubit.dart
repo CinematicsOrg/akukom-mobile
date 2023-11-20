@@ -20,4 +20,8 @@ class LoginCubit extends Cubit<LoginState> {
       password: password,
     ));
   }
+
+  void reset() {
+    emit(LoginState.initial());
+  }
 }

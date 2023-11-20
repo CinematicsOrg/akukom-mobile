@@ -27,7 +27,7 @@ class Locator {
     setUpImageUploadLocator();
 
     /// -------- Authentication -------- ///
-    setAuthLocator();
+    setupAuthLocator();
   }
 
   static void _otherSetup() {

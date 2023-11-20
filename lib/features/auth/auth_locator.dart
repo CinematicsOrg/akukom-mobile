@@ -2,7 +2,7 @@ import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/utils/http_helper.dart';
 import 'package:akukom/features/auth/__auth.dart';
 
-void setAuthLocator() {
+void setupAuthLocator() {
   // Data Sources
   getIt.registerLazySingleton<AuthRemoteDataSource>(
     () => AuthRemoteDataSourceImpl(httpHelper: getIt<HttpHelper>()),
@@ -108,6 +108,7 @@ void setAuthLocator() {
   getIt.registerLazySingleton(
     () => CreateNewPasswordCubit(),
   );
+
 
   getIt.registerLazySingleton(
     () => ForgotPasswordCubit(),

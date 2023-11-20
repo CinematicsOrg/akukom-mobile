@@ -20,4 +20,8 @@ class SignupCompleteCubit extends Cubit<SignupCompleteState> {
       countryOfResidence: countryOfResidence,
     ));
   }
+
+  void reset() {
+    emit(SignupCompleteState.initial());
+  }
 }

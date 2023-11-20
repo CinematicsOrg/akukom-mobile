@@ -1,6 +1,6 @@
 part of 'change_password_bloc.dart';
 
-enum ChangePasswordStatus { initial, loading, failure, success }
+enum ChangePasswordStatus {initial, loading, failure, success}
 
 extension ChangePasswordStatusX on ChangePasswordStatus {
   bool get isInitial => this == ChangePasswordStatus.initial;
