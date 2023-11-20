@@ -28,6 +28,13 @@ class ApiEndpoints {
   String get baseUrl => _baseUrlV1;
 
   /// Auth
-  static final String login = '$_baseUrlV2/auth/login';
-  static final String logout = '$_baseUrlV1/auth/logout';
+  static final String signup = '$_baseUrlV1/auth/process/signup';
+  static final String login = '$_baseUrlV1/auth/process/login';
+  static final String checkPhoneUsage = '$_baseUrlV1/auth/process/check-phone-usage';
+  static final String completeSignup = '$_baseUrlV1/auth/process/complete-signup';
+  static final String verifyPhoneNumber = '$_baseUrlV1/auth/process/verify-phone-number';
+  static final String forgotPasswordOtp = '$_baseUrlV1/auth/process/forgot-password-otp';
+  static final String forgotPasswordOtpVerification = '$_baseUrlV1/auth/process/forgot-password-otp-verification';
+  static final String changePassword = '$_baseUrlV1/auth/process/change-password';
+  // static final String verifyPhoneNumber = '$_baseUrlV1/auth/process/verify-phone-number';
 }
