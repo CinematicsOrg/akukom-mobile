@@ -30,7 +30,10 @@ class RouteGenerator {
         return pageRoute(const CompleteCreateAccountView());
 
       case PhoneVerificationOtpView.routeName:
-        return pageRoute(const PhoneVerificationOtpView());
+        final phone = settings.arguments as String;
+        return pageRoute(PhoneVerificationOtpView(
+          phone: phone,
+        ));
 
       case VerificationSuccessfulView.routeName:
         return pageRoute(const VerificationSuccessfulView());

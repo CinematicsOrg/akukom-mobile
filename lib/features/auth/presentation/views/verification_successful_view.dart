@@ -1,16 +1,21 @@
+import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/components/components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
+import 'package:akukom/features/auth/__auth.dart';
 import 'package:akukom/features/auth/presentation/views/__views.dart';
 import 'package:flutter/material.dart';
 
 class VerificationSuccessfulView extends StatelessWidget {
   static const String routeName = '/verification-successful';
-  const VerificationSuccessfulView({super.key});
+  const VerificationSuccessfulView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final SignupCubit _signupCubit = getIt<SignupCubit>();
     return NormalScaffoldWidget(
       useSingleScroll: false,
       body: Column(
@@ -40,7 +45,7 @@ class VerificationSuccessfulView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   TextWidget(
-                    'Name',
+                    _signupCubit.state.email.value,
                     fontSize: sp(23),
                     fontWeight: FontWeight.w600,
                     textAlign: TextAlign.center,

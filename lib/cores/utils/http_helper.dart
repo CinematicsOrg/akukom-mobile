@@ -21,10 +21,11 @@ class HttpHelper {
   });
 
   Future<Map<String, String>> headers() async {
+    final token = await SessionManager.instance.bearerToken;
     return {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': await SessionManager.instance.bearerToken,
+      'Authorization': "Bearer $token",
       'platform': Platform.operatingSystem,
       // 'version': (await PackageInfo.fromPlatform()).version.substring(0, 4),
     };

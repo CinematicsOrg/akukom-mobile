@@ -1,9 +1,11 @@
+import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/components/components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -14,6 +16,10 @@ class EmalVerificationOtpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ForgotPasswordCubit forgotPasswordCubit =
+        getIt<ForgotPasswordCubit>();
+    final email = forgotPasswordCubit.state.email.value;
+
     return NormalScaffoldWidget(
       useSingleScroll: false,
       body: Column(
@@ -26,7 +32,7 @@ class EmalVerificationOtpView extends StatelessWidget {
             width: sp(328),
             child: TwoSpanTextWidget(
               AppStrings.kindlyEnterTheCode,
-              ' jande@gmail.com',
+              email,
               fontSize: sp(kfsTiny),
               fontSize2: sp(kfsTiny),
               textColor2: kcBlack700,
@@ -34,7 +40,9 @@ class EmalVerificationOtpView extends StatelessWidget {
             ),
           ),
           verticalSpace(77),
-          const _VerifyEmailForm(),
+          _VerifyEmailForm(
+            email,
+          ),
           verticalSpace(50),
           Align(
             alignment: Alignment.center,
@@ -54,7 +62,10 @@ class EmalVerificationOtpView extends StatelessWidget {
 }
 
 class _VerifyEmailForm extends StatefulWidget {
-  const _VerifyEmailForm();
+  final String email;
+  const _VerifyEmailForm(
+    this.email,
+  );
 
   @override
   State<_VerifyEmailForm> createState() => __VerifyEmailFormState();
@@ -62,38 +73,77 @@ class _VerifyEmailForm extends StatefulWidget {
 
 class __VerifyEmailFormState extends State<_VerifyEmailForm> {
   final OtpFieldController _otpController = OtpFieldController();
+  final VerifyForgotPasswordOtpBloc _verifyForgotPasswordOtpBloc =
+      getIt<VerifyForgotPasswordOtpBloc>();
 
   @override
   void dispose() {
+    _verifyForgotPasswordOtpBloc.close();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return OTPTextField(
-      controller: _otpController,
-      length: 4,
-      otpFieldStyle: OtpFieldStyle(
-        focusBorderColor: kcBlack,
-        disabledBorderColor: kcBlack700,
-        borderColor: kcBlack700,
-        enabledBorderColor: kcBlack700,
-        backgroundColor: kcWhite,
-      ),
-      width: MediaQuery.of(context).size.width,
-      outlineBorderRadius: 10,
-      fieldWidth: sp(64),
-      style: GoogleFonts.inter(
-        fontSize: sp(kfsLarge),
-        fontWeight: FontWeight.w700,
-        color: kcBlack,
-      ),
-      contentPadding: EdgeInsets.symmetric(vertical: sp(20)),
-      textFieldAlignment: MainAxisAlignment.spaceAround,
-      fieldStyle: FieldStyle.box,
-      onCompleted: (pin) {
-        AppRouter.instance.navigateTo(NewPasswordView.routeName);
+    return BlocConsumer<VerifyForgotPasswordOtpBloc,
+        VerifyForgotPasswordOtpState>(
+      bloc: _verifyForgotPasswordOtpBloc,
+      listener: onForgotPasswordChanged,
+      builder: (context, state) {
+        return OTPTextField(
+          controller: _otpController,
+          length: 4,
+          otpFieldStyle: OtpFieldStyle(
+            focusBorderColor: kcBlack,
+            disabledBorderColor: kcBlack700,
+            borderColor: kcBlack700,
+            enabledBorderColor: kcBlack700,
+            backgroundColor: kcWhite,
+          ),
+          width: MediaQuery.of(context).size.width,
+          outlineBorderRadius: 10,
+          fieldWidth: sp(64),
+          style: GoogleFonts.inter(
+            fontSize: sp(kfsLarge),
+            fontWeight: FontWeight.w700,
+            color: kcBlack,
+          ),
+          contentPadding: EdgeInsets.symmetric(vertical: sp(20)),
+          textFieldAlignment: MainAxisAlignment.spaceAround,
+          fieldStyle: FieldStyle.box,
+          onCompleted: submitPin,
+        );
       },
     );
+  }
+
+  void submitPin(pin) {
+    final code = pin;
+    final email = widget.email;
+    final param = VerifyEmailParam(
+      email: email,
+      code: code,
+    );
+
+    _verifyForgotPasswordOtpBloc.add(
+      VerifyForgotPasswordOtpButtonPressed(
+        param: param,
+      ),
+    );
+  }
+}
+
+extension _VerifyEmailFormStateX on __VerifyEmailFormState {
+  void onForgotPasswordChanged(
+      BuildContext context, VerifyForgotPasswordOtpState state) {
+    if (state.status == VerifyForgotPasswordOtpStatus.success) {
+      AppRouter.instance.navigateTo(NewPasswordView.routeName);
+    } else if (state.status == VerifyForgotPasswordOtpStatus.failure) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(state.failures!.message),
+          backgroundColor: kcErrorColor,
+        ),
+      );
+    }
   }
 }

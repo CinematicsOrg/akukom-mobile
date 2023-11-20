@@ -71,7 +71,11 @@ class _OpeningAccountWidget extends StatelessWidget {
           verticalSpace(45),
           Button(
             text: AppStrings.signIn,
-            onTap: () {},
+            onTap: () {
+              AppRouter.instance.navigateTo(
+                LoginView.routeName,
+              );
+            },
           ),
           verticalSpace(14),
           Button.withBorderLine(
