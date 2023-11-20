@@ -55,5 +55,73 @@ void setAuthLocator() {
   );
 
   // Bloc
-  
+  getIt.registerFactory(
+    () => ChangePasswordBloc(
+      changePasswordUseCase: getIt<ChangePasswordUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => CheckPhoneUsageBloc(
+      checkPhoneUsageUseCase: getIt<CheckPhoneUsageUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => CompleteSignupBloc(
+      completeSignupUseCase: getIt<CompleteSignupUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => ForgotPasswordOtpBloc(
+      forgotPasswordUseCase: getIt<ForgotPasswordUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => SigninBloc(
+      loginUseCase: getIt<LoginUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => SignupBloc(
+      signupUseCase: getIt<SignupUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => VerifyForgotPasswordOtpBloc(
+      forgotPasswordVerificationUseCase:
+          getIt<ForgotPasswordVerificationUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => VerifyPhoneBloc(
+      verifyPhoneNumberUseCase: getIt<VerifyPhoneNumberUseCase>(),
+    ),
+  );
+
+  // Cubits
+  getIt.registerLazySingleton(
+    () => CreateNewPasswordCubit(),
+  );
+
+  getIt.registerLazySingleton(
+    () => ForgotPasswordCubit(),
+  );
+
+  getIt.registerLazySingleton(
+    () => LoginCubit(),
+  );
+
+  getIt.registerLazySingleton(
+    () => SignupCompleteCubit(),
+  );
+
+  getIt.registerLazySingleton(
+    () => SignupCubit(),
+  );
 }
