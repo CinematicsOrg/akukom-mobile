@@ -55,9 +55,9 @@ class _OpeningScreenState extends State<OpeningScreen> {
               });
             },
             children: <Widget>[
-              _buildContentWidget('assets/image1.jpg'),
-              _buildContentWidget('assets/image2.jpg'),
-              _buildContentWidget('assets/image3.jpg'),
+              _buildContentWidget(AppImages.onboarding1),
+              _buildContentWidget(AppImages.onboarding2),
+              _buildContentWidget(AppImages.onboarding3),
             ],
           ),
           Positioned(
@@ -166,6 +166,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
         image: DecorationImage(
           image: AssetImage(imagePath),
           fit: BoxFit.cover,
+          filterQuality: FilterQuality.high,
         ),
       ),
       child: Container(

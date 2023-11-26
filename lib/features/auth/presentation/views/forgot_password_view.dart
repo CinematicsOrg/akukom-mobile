@@ -23,12 +23,15 @@ class ForgotPasswordView extends StatelessWidget {
           const _ForgotPasswordForm(),
           Align(
             alignment: Alignment.center,
-            child: TextWidget(
-              AppStrings.goBackToSignIn,
-              fontSize: sp(14),
-              textColor: kcBlack,
-              fontWeight: FontWeight.w500,
-              textAlign: TextAlign.center,
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: TextWidget(
+                AppStrings.goBackToSignIn,
+                fontSize: sp(14),
+                textColor: kcBlack,
+                fontWeight: FontWeight.w500,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ],
@@ -85,19 +88,9 @@ class __ForgotPasswordFormState extends State<_ForgotPasswordForm> {
                   text: AppStrings.resetPassword,
                   onTap: resetPassword,
                   active: _forgotPasswordCubit.state.isValid,
-
                   color: _forgotPasswordCubit.state.isValid
                       ? kcPrimaryColor
                       : kcGrey400.withOpacity(0.5),
-                  // onTap: () {
-                  //   AppRouter.instance.navigateTo(
-                  //     EmalVerificationOtpView.routeName,
-                  //   );
-                  // Navigator.pushNamed(
-                  //   context,
-                  //   EmalVerificationOtpView.routeName,
-                  // );
-                  // },
                 );
               },
             ),

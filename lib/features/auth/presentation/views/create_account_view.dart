@@ -70,22 +70,22 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
           child: Column(
             children: [
               TextFieldWidget(
-                hintText: AppStrings.firstName,
-                title: AppStrings.firstNameHint,
+                hintText: AppStrings.firstNameHint,
+                title: AppStrings.firstName,
                 textEditingController: _firstNameController,
                 onChanged: _signupCubit.firstnameChanged,
               ),
               verticalSpace(24),
               TextFieldWidget(
-                hintText: AppStrings.lastName,
-                title: AppStrings.lastNameHint,
+                hintText: AppStrings.lastNameHint,
+                title: AppStrings.lastName,
                 textEditingController: _lastNameController,
                 onChanged: _signupCubit.lastnameChanged,
               ),
               verticalSpace(24),
               TextFieldWidget(
-                hintText: AppStrings.email,
-                title: AppStrings.emailHint,
+                hintText: AppStrings.emailHint,
+                title: AppStrings.email,
                 textEditingController: _emailController,
                 textInputType: TextInputType.emailAddress,
                 onChanged: _signupCubit.emailChanged,
@@ -178,13 +178,16 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                 ],
               ),
               verticalSpace(30),
-              const Center(
-                child: TwoSpanTextWidget(
-                  AppStrings.alreadyHaveAnAccount,
-                  AppStrings.login,
-                  textColor: kcBlack700,
-                  textColor2: kcPrimaryColor,
-                  fontWeight2: FontWeight.w700,
+              GestureDetector(
+                onTap: () => AppRouter.instance.navigateTo(LoginView.routeName),
+                child: const Center(
+                  child: TwoSpanTextWidget(
+                    AppStrings.alreadyHaveAnAccount,
+                    AppStrings.login,
+                    textColor: kcBlack700,
+                    textColor2: kcPrimaryColor,
+                    fontWeight2: FontWeight.w700,
+                  ),
                 ),
               ),
               verticalSpace(40),

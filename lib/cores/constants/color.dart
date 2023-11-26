@@ -84,7 +84,7 @@ class AppColors {
 }
 
 // const Color kcDarkTextColor = Color(0xff121111);
-const Color kcPrimaryColor = Color(0xff336633);
+const Color kcPrimaryColor = Color(0xffFF8958);
 const Color kcSecondaryColor = Color(0xFF11A27F);
 
 const Color kcTextColor = Color(0xFF111213);

@@ -70,7 +70,7 @@ class _OpeningAccountWidget extends StatelessWidget {
           ),
           verticalSpace(45),
           Button(
-            text: AppStrings.signIn,
+            text: AppStrings.login,
             onTap: () {
               AppRouter.instance.navigateTo(
                 LoginView.routeName,
@@ -104,7 +104,6 @@ class _OpeningAccountWidget extends StatelessWidget {
                 fontSize: sp(15),
                 textColor: kcPrimaryColor,
                 fontWeight: FontWeight.w400,
-                decoration: TextDecoration.underline,
               ),
               TextWidget(
                 AppStrings.and,
@@ -117,7 +116,6 @@ class _OpeningAccountWidget extends StatelessWidget {
                 fontSize: sp(15),
                 textColor: kcPrimaryColor,
                 fontWeight: FontWeight.w400,
-                decoration: TextDecoration.underline,
               ),
             ],
           ),

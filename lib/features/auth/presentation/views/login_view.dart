@@ -24,17 +24,20 @@ class LoginView extends StatelessWidget {
           verticalSpace(250),
           Align(
             alignment: Alignment.center,
-            child: TwoSpanTextWidget(
-              AppStrings.dontHaveAnAccount,
-              AppStrings.signUp,
-              fontSize: sp(14),
-              fontSize2: sp(14),
-              textColor: kcBlack700,
-              textColor2: kcPrimaryColor,
-              textAlign: TextAlign.center,
+            child: GestureDetector(
+              onTap: () =>
+                  AppRouter.instance.navigateTo(CreateAccountView.routeName),
+              child: TwoSpanTextWidget(
+                AppStrings.dontHaveAnAccount,
+                AppStrings.signUp,
+                fontSize: sp(14),
+                fontSize2: sp(14),
+                textColor: kcBlack700,
+                textColor2: kcPrimaryColor,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
-          // verticalSpace(58),
         ],
       ),
     );
@@ -64,7 +67,7 @@ class __LoginFormState extends State<_LoginForm> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-    _loginCubit.close();
+    _signinBloc.close();
     super.dispose();
   }
 
@@ -124,10 +127,6 @@ class __LoginFormState extends State<_LoginForm> {
                       ? kcPrimaryColor
                       : kcGrey400.withOpacity(0.5),
                   onTap: login,
-                  // onTap: () {
-                  //   AppRouter.instance
-                  //       .navigateTo(CompleteCreateAccountView.routeName);
-                  // },
                 );
               },
             ),
@@ -166,7 +165,7 @@ extension __LoginFormListener on __LoginFormState {
               textColor: kcWhite,
               fontWeight: FontWeight.w400,
             ),
-            backgroundColor: kcErrorColor,
+            backgroundColor: kcPrimaryColor,
           ),
         );
     } else if (state.status == SigninStatus.failure) {
