@@ -23,13 +23,13 @@ class SuccessStateWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        verticalSpace(20),
+        vSpace(20),
         TextWidget(
           title,
           fontSize: sp(20),
           fontWeight: FontWeight.w400,
         ),
-        verticalSpace(5),
+        vSpace(5),
         // Lottie.asset(
         //   "assets/lottie/state_status/success_state_three.json",
         //   height: h(150),
@@ -37,7 +37,7 @@ class SuccessStateWidget extends StatelessWidget {
         //   repeat: false,
         //   fit: BoxFit.fill,
         // ),
-        verticalSpace(20),
+        vSpace(20),
         SizedBox(
           width: sw(75),
           child: TextWidget(
@@ -47,9 +47,9 @@ class SuccessStateWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        verticalSpace(25),
+        vSpace(25),
         Button.icon(text: "Next", onTap: onTap ?? () {}),
-        verticalSpace(),
+        vSpace(),
       ],
     );
   }

@@ -157,11 +157,11 @@ class Button extends StatelessWidget {
 
     MaterialStateProperty<Color> backgroundColor;
     if (busy) {
-      backgroundColor = MaterialStateProperty.all(kcPrimaryColor);
+      backgroundColor = MaterialStateProperty.all(kcInactiveButtonColor);
     } else if (active == false) {
       backgroundColor = MaterialStateProperty.all(kcGrey400);
     } else {
-      backgroundColor = MaterialStateProperty.all(color ?? kcPrimaryColor);
+      backgroundColor = MaterialStateProperty.all(color ?? kcButtonColor);
     }
 
     return ButtonStyle(
@@ -197,7 +197,7 @@ class Button extends StatelessWidget {
                 fontSize: sp(15),
                 fontWeight: textFontWeight,
               ),
-            if (text != null) horizontalSpace(),
+            if (text != null) const HSpace(0),
             Icon(
               iconData,
               color: iconColor ?? Colors.white,

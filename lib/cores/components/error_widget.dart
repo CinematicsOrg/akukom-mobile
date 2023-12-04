@@ -29,7 +29,7 @@ class CustomErrorWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            horizontalSpace(double.infinity),
+            const HSpace(double.infinity),
             if (assetPath != null)
               SizedBox(
                 height: sp(200),
@@ -57,7 +57,7 @@ class CustomErrorWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        horizontalSpace(double.infinity),
+        const HSpace(double.infinity),
         if (assetPath != null)
           SizedBox(
             height: sp(200),

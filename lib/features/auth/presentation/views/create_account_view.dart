@@ -20,9 +20,9 @@ class CreateAccountView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
+          vSpace(30),
           const AuthHeaderWidget(AppStrings.joinUs),
-          verticalSpace(35),
+          vSpace(35),
           const _CreateAccountForm(),
         ],
       ),
@@ -75,14 +75,14 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                 textEditingController: _firstNameController,
                 onChanged: _signupCubit.firstnameChanged,
               ),
-              verticalSpace(24),
+              vSpace(24),
               TextFieldWidget(
                 hintText: AppStrings.lastNameHint,
                 title: AppStrings.lastName,
                 textEditingController: _lastNameController,
                 onChanged: _signupCubit.lastnameChanged,
               ),
-              verticalSpace(24),
+              vSpace(24),
               TextFieldWidget(
                 hintText: AppStrings.emailHint,
                 title: AppStrings.email,
@@ -90,7 +90,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                 textInputType: TextInputType.emailAddress,
                 onChanged: _signupCubit.emailChanged,
               ),
-              verticalSpace(24),
+              vSpace(24),
               TextFieldWidget(
                 hintText: AppStrings.password,
                 title: AppStrings.passwordHint,
@@ -98,7 +98,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                 isPassword: true,
                 onChanged: _signupCubit.passwordChanged,
               ),
-              verticalSpace(12),
+              vSpace(12),
               Row(
                 children: [
                   Checkbox(
@@ -113,7 +113,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   ),
                 ],
               ),
-              verticalSpace(56),
+              vSpace(56),
               BlocConsumer<SignupBloc, SignupState>(
                 bloc: _signupBloc,
                 listener: onSignupStateChanged,
@@ -137,7 +137,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   );
                 },
               ),
-              verticalSpace(12),
+              vSpace(12),
               Row(
                 children: [
                   const Expanded(
@@ -161,23 +161,23 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   ),
                 ],
               ),
-              verticalSpace(16),
+              vSpace(16),
               Row(
                 children: [
                   const _SignUpOptions(
                     imagePath: AppIcons.facebook,
                   ),
-                  horizontalSpace(13),
+                  hSpace(13),
                   const _SignUpOptions(
                     imagePath: AppIcons.google,
                   ),
-                  horizontalSpace(13),
+                  hSpace(13),
                   const _SignUpOptions(
                     imagePath: AppIcons.apple,
                   ),
                 ],
               ),
-              verticalSpace(30),
+              vSpace(30),
               GestureDetector(
                 onTap: () => AppRouter.instance.navigateTo(LoginView.routeName),
                 child: const Center(
@@ -190,7 +190,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   ),
                 ),
               ),
-              verticalSpace(40),
+              vSpace(40),
             ],
           ),
         );

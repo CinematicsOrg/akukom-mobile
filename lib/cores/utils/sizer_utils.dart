@@ -1,3 +1,4 @@
+import 'package:akukom/cores/constants/__constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,6 +17,32 @@ double w(double value) => value.w;
 
 double sr(double value) => value.r;
 
-SizedBox verticalSpace([double value = 10]) => SizedBox(height: value.sp);
+SizedBox vSpace([double value = 10]) => SizedBox(height: value.sp);
 
-SizedBox horizontalSpace([double value = 10]) => SizedBox(width: value.sp);
+SizedBox hSpace([double value = 10]) => SizedBox(width: value.sp);
+
+class VSpace extends StatelessWidget {
+  const VSpace(this.size, {Key? key, this.unit = SizeUnit.pixel})
+      : super(key: key);
+  final double size;
+  final SizeUnit unit;
+
+  @override
+  Widget build(BuildContext context) {
+    final double size = unit == SizeUnit.pixel ? this.size : this.size.h;
+    return SizedBox(height: size);
+  }
+}
+
+class HSpace extends StatelessWidget {
+  const HSpace(this.size, {Key? key, this.unit = SizeUnit.pixel})
+      : super(key: key);
+  final double size;
+  final SizeUnit unit;
+
+  @override
+  Widget build(BuildContext context) {
+    final double size = unit == SizeUnit.pixel ? this.size : this.size.w;
+    return SizedBox(width: size);
+  }
+}

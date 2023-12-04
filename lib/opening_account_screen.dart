@@ -45,7 +45,7 @@ class _OpeningAccountWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 18),
       child: Column(
         children: [
-          verticalSpace(44),
+          const VSpace(44),
           Align(
             alignment: Alignment.topLeft,
             child: TextWidget(
@@ -56,7 +56,7 @@ class _OpeningAccountWidget extends StatelessWidget {
               ),
             ),
           ),
-          verticalSpace(16),
+          const VSpace(16),
           SizedBox(
             child: Align(
               alignment: Alignment.topLeft,
@@ -68,7 +68,7 @@ class _OpeningAccountWidget extends StatelessWidget {
               ),
             ),
           ),
-          verticalSpace(45),
+          const VSpace(45),
           Button(
             text: AppStrings.login,
             onTap: () {
@@ -77,7 +77,7 @@ class _OpeningAccountWidget extends StatelessWidget {
               );
             },
           ),
-          verticalSpace(14),
+          const VSpace(14),
           Button.withBorderLine(
             text: AppStrings.createAccount,
             onTap: () {
@@ -89,7 +89,7 @@ class _OpeningAccountWidget extends StatelessWidget {
             textColor: kcBlack,
             borderColor: kcBlack,
           ),
-          verticalSpace(25),
+          const VSpace(25),
           TextWidget(
             AppStrings.byContinuing,
             fontSize: sp(15),

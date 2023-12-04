@@ -17,9 +17,9 @@ class ForgotPasswordView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
+          const VSpace(30),
           const AuthHeaderWidget(AppStrings.forgotPassword),
-          verticalSpace(35),
+          const VSpace(35),
           const _ForgotPasswordForm(),
           Align(
             alignment: Alignment.center,
@@ -74,7 +74,7 @@ class __ForgotPasswordFormState extends State<_ForgotPasswordForm> {
               textInputType: TextInputType.emailAddress,
               onChanged: _forgotPasswordCubit.emailChanged,
             ),
-            verticalSpace(32),
+            const VSpace(32),
             BlocConsumer<ForgotPasswordOtpBloc, ForgotPasswordOtpState>(
               bloc: _forgotPasswordOtpBloc,
               listener: onForgotPasswordChanged,
@@ -94,7 +94,7 @@ class __ForgotPasswordFormState extends State<_ForgotPasswordForm> {
                 );
               },
             ),
-            verticalSpace(20),
+            const VSpace(20),
           ],
         );
       },

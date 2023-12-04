@@ -73,7 +73,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        horizontalSpace(33),
+                        const HSpace(33),
                         ..._buildPageIndicator(),
                         SizedBox(
                           width: sp(250),
@@ -194,7 +194,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 fontWeight2: FontWeight.w800,
                 textAlign: TextAlign.center,
               ),
-              verticalSpace(16),
+              const VSpace(16),
               TextWidget(
                 AppStrings.bookARide,
                 fontSize: sp(kfsLarge),
@@ -202,7 +202,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 fontWeight: FontWeight.w500,
                 textAlign: TextAlign.left,
               ),
-              verticalSpace(150),
+              const VSpace(150),
             ],
           ),
         ),

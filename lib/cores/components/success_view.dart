@@ -1,7 +1,6 @@
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/color.dart';
 import '../utils/sizer_utils.dart';
 import 'custom_button.dart';
 import 'custom_scaffold_widget.dart';
@@ -38,8 +37,8 @@ class SuccessView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          horizontalSpace(double.infinity),
-          verticalSpace(40),
+          hSpace(double.infinity),
+          vSpace(40),
           SizedBox(
             width: sp(246),
             height: sp(246),
@@ -48,7 +47,7 @@ class SuccessView extends StatelessWidget {
               imageTypes: ImageTypes.asset,
             ),
           ),
-          verticalSpace(20),
+          vSpace(20),
           SizedBox(
             width: sw(70),
             child: TextWidget(
@@ -59,7 +58,7 @@ class SuccessView extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          verticalSpace(),
+          vSpace(),
           SizedBox(
             width: sw(70),
             child: TextWidget(
@@ -79,9 +78,9 @@ class SuccessView extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          verticalSpace(),
+          vSpace(),
           Button(text: data.buttonText, onTap: data.onTap),
-          verticalSpace(20),
+          vSpace(20),
         ],
       ),
     );

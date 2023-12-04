@@ -37,7 +37,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(AppImages.logo),
-                  horizontalSpace(),
                   Text(
                     AppStrings.appName,
                     style: GoogleFonts.sora(
@@ -57,14 +56,16 @@ class _SplashScreenState extends State<SplashScreen> {
             fontWeight: FontWeight.w500,
             textAlign: TextAlign.center,
           ),
-          verticalSpace(14),
+          const VSpace(
+            14,
+          ),
           TextWidget(
             AppStrings.splashScreenSubText,
             fontSize: sp(kfsMedium),
             textColor: const Color(0xFFD4D4D4),
             textAlign: TextAlign.center,
           ),
-          verticalSpace(24)
+          const VSpace(24)
         ],
       ),
       usePadding: true,

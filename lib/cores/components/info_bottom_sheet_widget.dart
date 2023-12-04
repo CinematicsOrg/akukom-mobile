@@ -22,9 +22,9 @@ class InfoBottomSheetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        verticalSpace(),
+        const VSpace(0),
         Icon(icon, color: kcSoftTextColor, size: sp(40)),
-        verticalSpace(40),
+        const VSpace(40),
         TextWidget(
           title,
           fontSize: sp(16),
@@ -36,9 +36,9 @@ class InfoBottomSheetWidget extends StatelessWidget {
           fontWeight: FontWeight.w300,
           textColor: kcSoftTextColor,
         ),
-        verticalSpace(40),
+        const VSpace(40),
         Button(text: "Try Again", onTap: onTap),
-        verticalSpace(),
+        const VSpace(0),
       ],
     );
   }

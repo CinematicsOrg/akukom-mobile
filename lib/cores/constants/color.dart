@@ -90,6 +90,9 @@ const Color kcSecondaryColor = Color(0xFF11A27F);
 const Color kcTextColor = Color(0xFF111213);
 const Color kcSoftTextColor = Color(0xFF4F5E62);
 
+const Color kcButtonColor = Color(0xffFF8958);
+const Color kcInactiveButtonColor = Color(0xFFFFC4AB);
+
 const Color kcGreyLight = Color(0xffEEEEEE);
 const Color kcGrey400 = Color(0xffBDBDBD);
 const Color kcGrey600 = Color(0xff757575);

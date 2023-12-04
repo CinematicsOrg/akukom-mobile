@@ -25,9 +25,9 @@ class EmalVerificationOtpView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
+          const VSpace(30),
           const AuthHeaderWidget(AppStrings.verifyEmailAdress),
-          verticalSpace(15),
+          const VSpace(15),
           SizedBox(
             width: sp(328),
             child: TwoSpanTextWidget(
@@ -39,11 +39,11 @@ class EmalVerificationOtpView extends StatelessWidget {
               textColor: kcBlack700,
             ),
           ),
-          verticalSpace(77),
+          const VSpace(77),
           _VerifyEmailForm(
             email,
           ),
-          verticalSpace(50),
+          const VSpace(50),
           Align(
             alignment: Alignment.center,
             child: TwoSpanTextWidget(

@@ -12,14 +12,14 @@ class NewPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NormalScaffoldWidget(
+    return const NormalScaffoldWidget(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
-          const AuthHeaderWidget(AppStrings.createNewPassword),
-          verticalSpace(35),
-          const _NewPasswordForm(),
+          VSpace(30),
+          AuthHeaderWidget(AppStrings.createNewPassword),
+          VSpace(35),
+          _NewPasswordForm(),
         ],
       ),
     );
@@ -68,7 +68,7 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
               onChanged: _createNewPasswordCubit.passwordChanged,
               isPassword: true,
             ),
-            verticalSpace(20),
+            const VSpace(20),
             TextFieldWidget(
               hintText: AppStrings.confirmPassword,
               title: AppStrings.confirmPasswordHint,
@@ -76,7 +76,7 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
               onChanged: _createNewPasswordCubit.confirmPasswordChanged,
               isPassword: true,
             ),
-            verticalSpace(20),
+            const VSpace(20),
             Align(
               alignment: Alignment.centerRight,
               child: TextWidget(
@@ -87,7 +87,7 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
                 textAlign: TextAlign.left,
               ),
             ),
-            verticalSpace(32),
+            const VSpace(32),
             BlocConsumer<ChangePasswordBloc, ChangePasswordState>(
               bloc: _changePasswordBloc,
               listener: onNewPasswordChanged,
@@ -129,7 +129,6 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
       password: passoword,
       confirmNewPassword: confirmPassword,
     );
-
 
     _changePasswordBloc.add(
       ChangePasswordButtonPressed(

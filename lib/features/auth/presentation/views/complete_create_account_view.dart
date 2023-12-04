@@ -4,6 +4,7 @@ import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/sizer_utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,15 +14,15 @@ class CompleteCreateAccountView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NormalScaffoldWidget(
+    return const NormalScaffoldWidget(
       useSingleScroll: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
-          const AuthHeaderWidget(AppStrings.almostThere),
-          verticalSpace(35),
-          const Expanded(child: _CompleteCreateAccountForm()),
+          VSpace(30),
+          AuthHeaderWidget(AppStrings.almostThere),
+          VSpace(35),
+          Expanded(child: _CompleteCreateAccountForm()),
         ],
       ),
     );
@@ -65,20 +66,30 @@ class __CompleteCreateAccountFormState
         return Column(
           children: [
             TextFieldWidget(
-              hintText: AppStrings.phoneNumberHint,
-              title: AppStrings.phoneNumber,
-              textEditingController: phoneNumberController,
-              textInputType: TextInputType.phone,
-              onChanged: _signupCompleteCubit.phoneChanged,
-            ),
-            verticalSpace(20),
-            TextFieldWidget(
               hintText: AppStrings.countryOfResidenceHint,
               title: AppStrings.countryOfResidence,
               textEditingController: countryController,
               onChanged: _signupCompleteCubit.countryOfResidenceChanged,
             ),
-            verticalSpace(60),
+            TextFieldWidget(
+              hintText: AppStrings.phoneNumberHint,
+              title: AppStrings.phoneNumber,
+              textEditingController: phoneNumberController,
+              textInputType: TextInputType.phone,
+              onChanged: _signupCompleteCubit.phoneChanged,
+              prefix: const CountryCodePicker(
+                showFlag: false,
+                onChanged: print,
+                // optional. Shows only country name and flag
+                showCountryOnly: false,
+                // optional. Shows only country name and flag when popup is closed.
+                showOnlyCountryWhenClosed: false,
+                // optional. aligns the flag and the Text left
+                alignLeft: false,
+              ),
+            ),
+            const VSpace(20),
+            const VSpace(60),
             BlocConsumer<CompleteSignupBloc, CompleteSignupState>(
               bloc: _completeSignupBloc,
               listener: onCompleteSignupChanged,

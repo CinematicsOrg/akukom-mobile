@@ -17,11 +17,11 @@ class LoginView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
+          const VSpace(30),
           const AuthHeaderWidget(AppStrings.welcomeBack),
-          verticalSpace(35),
+          const VSpace(35),
           const _LoginForm(),
-          verticalSpace(250),
+          const VSpace(250),
           Align(
             alignment: Alignment.center,
             child: GestureDetector(
@@ -85,7 +85,7 @@ class __LoginFormState extends State<_LoginForm> {
               textInputType: TextInputType.emailAddress,
               onChanged: _loginCubit.emailChanged,
             ),
-            verticalSpace(20),
+            const VSpace(20),
             TextFieldWidget(
               hintText: AppStrings.passwordHint,
               title: AppStrings.password,
@@ -94,7 +94,7 @@ class __LoginFormState extends State<_LoginForm> {
               onChanged: _loginCubit.passwordChanged,
               isPassword: true,
             ),
-            verticalSpace(16),
+            const VSpace(16),
             Align(
               alignment: Alignment.bottomRight,
               child: GestureDetector(
@@ -110,7 +110,7 @@ class __LoginFormState extends State<_LoginForm> {
                 ),
               ),
             ),
-            verticalSpace(81),
+            const VSpace(81),
             BlocConsumer<SigninBloc, SigninState>(
               bloc: _signinBloc,
               listener: onLoginListener,
