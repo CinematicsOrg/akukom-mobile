@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:akukom/features/auth/__auth.dart';
+import 'package:akukom/features/main_layout/presentation/views/main_layout.dart';
+import 'package:akukom/features/story/__story.dart';
 import 'package:akukom/opening_account_screen.dart';
 import 'package:akukom/opening_screen.dart';
 import 'package:akukom/splash_screen.dart';
@@ -52,6 +54,12 @@ class RouteGenerator {
 
       case PasswordResetSuccessfulView.routeName:
         return pageRoute(const PasswordResetSuccessfulView());
+
+      case MainLayout.routeName:
+        return pageRoute(const MainLayout());
+
+      case NotificationsView.routeName:
+        return pageRoute(const NotificationsView());
 
       default:
         return errorRoute();

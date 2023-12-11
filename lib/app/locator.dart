@@ -1,4 +1,5 @@
 import 'package:akukom/features/auth/auth_locator.dart';
+import 'package:akukom/features/main_layout/main_layout_locator.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
@@ -28,6 +29,9 @@ class Locator {
 
     /// -------- Authentication -------- ///
     setupAuthLocator();
+
+    /// -------- NavBottom Bar --------- ///
+    setupMainLayoutLocator();
   }
 
   static void _otherSetup() {

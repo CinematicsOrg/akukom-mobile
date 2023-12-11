@@ -3,7 +3,7 @@ import 'package:akukom/cores/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'components.dart';
+import '__components.dart';
 
 class Toast {
   Toast._();

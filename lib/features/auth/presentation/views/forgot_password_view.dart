@@ -1,5 +1,5 @@
 import 'package:akukom/app/locator.dart';
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/navigator.dart';
 import 'package:akukom/cores/utils/sizer_utils.dart';

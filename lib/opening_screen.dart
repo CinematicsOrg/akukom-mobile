@@ -1,4 +1,4 @@
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/utils/sizer_utils.dart';
 import 'package:akukom/opening_account_screen.dart';
 import 'package:flutter/material.dart';

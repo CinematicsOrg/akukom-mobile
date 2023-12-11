@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../navigator/navigator.dart';
 
 import '../../utils/utils.dart';
-import '../components.dart';
+import '../__components.dart';
 
 class COmingSoonStateWidget extends StatelessWidget {
   static const String routeName = '/comingSoonStateWidget';

@@ -28,12 +28,16 @@ class TextFieldWidget extends StatefulWidget {
     this.boldHintText = false,
     this.inputFormatters,
     this.prefixText,
+    this.readOnly = false,
+    this.onTap,
   }) : super(key: key);
 
   final TextEditingController? textEditingController;
   final bool autoCorrect;
   final String hintText;
   final String? title;
+  final bool? readOnly;
+  final void Function()? onTap;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmitted;
@@ -76,6 +80,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               inputFormatters: widget.inputFormatters,
               maxLines: widget.maxLine,
               enabled: widget.enabled,
+              readOnly: widget.readOnly ?? false,
+              onTap: widget.onTap,
               style: GoogleFonts.inter(
                 color: Theme.of(context).textTheme.titleMedium!.color,
                 fontWeight: FontWeight.w600,

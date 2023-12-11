@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:lottie/lottie.dart';
 
 import '../../utils/utils.dart';
-import '../components.dart';
+import '../__components.dart';
 
 class SuccessStateWidget extends StatelessWidget {
   static const String routeName = '/successStateWidget';

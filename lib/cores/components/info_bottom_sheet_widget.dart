@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/__constants.dart';
 import '../utils/utils.dart';
-import 'components.dart';
+import '__components.dart';
 
 class InfoBottomSheetWidget extends StatelessWidget {
   final IconData icon;

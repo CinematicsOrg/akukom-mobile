@@ -25,3 +25,10 @@ enum SizeUnit {
   pixel,
   percent,
 }
+
+enum NavBarType {
+  home,
+  gallery,
+  messages,
+  profile,
+}

@@ -49,6 +49,8 @@ class AppStrings {
   static const String phoneNumberHint = 'Your phone number';
   static const String countryOfResidence = 'Country of residence';
   static const String countryOfResidenceHint = 'Please Select';
+  static const String tribe = 'Tribe';
+  static const String tribeHint = 'Enter your tribe';
 
   // Phone Verification Screen
   static const String verifyYourNumber = 'Verify phone number';

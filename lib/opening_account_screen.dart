@@ -1,4 +1,4 @@
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/color.dart';
 import 'package:akukom/cores/constants/extensions.dart';
 import 'package:akukom/cores/constants/strings.dart';

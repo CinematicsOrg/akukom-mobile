@@ -21,6 +21,20 @@ class SignupCompleteCubit extends Cubit<SignupCompleteState> {
     ));
   }
 
+  void countryPhoneCodeChanged(String value) {
+    final countryPhoneCode = Required.dirty(value);
+    emit(
+      state.copyWith(countryPhoneCode: countryPhoneCode),
+    );
+  }
+
+  void tribeChanged(String value) {
+    final tribe = Required.dirty(value);
+    emit(
+      state.copyWith(tribe: tribe),
+    );
+  }
+
   void reset() {
     emit(SignupCompleteState.initial());
   }

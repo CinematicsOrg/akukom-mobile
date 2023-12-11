@@ -1,9 +1,10 @@
 import 'package:akukom/app/locator.dart';
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
+import 'package:akukom/features/main_layout/__main_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -168,6 +169,9 @@ extension __LoginFormListener on __LoginFormState {
             backgroundColor: kcPrimaryColor,
           ),
         );
+      AppRouter.instance.navigateToAndReplace(
+        MainLayout.routeName,
+      );
     } else if (state.status == SigninStatus.failure) {
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()

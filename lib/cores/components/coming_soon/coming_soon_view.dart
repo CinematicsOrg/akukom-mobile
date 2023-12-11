@@ -1,7 +1,7 @@
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:flutter/material.dart';
 import '../../navigator/navigator.dart';
-import '../components.dart';
+import '../__components.dart';
 import '../../utils/utils.dart';
 
 class ComingSoonPage extends StatelessWidget {
