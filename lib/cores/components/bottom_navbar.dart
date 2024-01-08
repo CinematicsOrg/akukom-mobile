@@ -1,8 +1,10 @@
 import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
+import 'package:akukom/cores/shared_blocs/__shared_bloc.dart';
 import 'package:akukom/features/main_layout/__main_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -18,7 +20,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   int _currentIndex = 0;
 
-  Widget navBarItem(NavBarType item) {
+  @override
+  void initState() {
+    _bottomNavCubit.reset();
+    super.initState();
+  }
+
+  Widget navBarItem(NavBarType item,) {
     final isActive = AppConstants.navbarItems.indexOf(item) == _currentIndex;
 
     return GestureDetector(
@@ -32,7 +40,29 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           borderRadius: BorderRadius.circular(8),
           // color: isActive ? kcPrimaryColor : Colors.transparent,
         ),
-        child: _IconButton(item: item, isActive: isActive),
+        child: item == NavBarType.profile
+            ? BlocBuilder<UserBloc, UserState>(
+                bloc: getIt<UserBloc>(),
+                builder: (context, state) {
+                  if (state.user?.image != null) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(24),
+                      child: ImageWidget(
+                        imageUrl: state.user!.image!,
+                        imageTypes: ImageTypes.network,
+                        height: 28.h,
+                        width: 28.w,
+                      ),
+                    );
+                  } else {
+                    return const Icon(
+                      Icons.person,
+                      size: 48,
+                    );
+                  }
+                },
+              )
+            : _IconButton(item: item, isActive: isActive),
       ),
     );
   }

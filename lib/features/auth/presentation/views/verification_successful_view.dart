@@ -28,6 +28,7 @@ class VerificationSuccessfulView extends StatelessWidget {
                 child: ImageWidget(
                   imageTypes: ImageTypes.asset,
                   imageUrl: AppImages.bigGreenTick,
+                  color: kcPrimaryColor,
                 ),
               ),
             ),

@@ -1,16 +1,30 @@
 import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/components/__components.dart';
+import 'package:akukom/features/family_group/presentation/_presentaion.dart';
 import 'package:akukom/features/main_layout/__main_layout.dart';
+import 'package:akukom/features/profile/__profile.dart';
 import 'package:akukom/features/story/__story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainLayout extends StatelessWidget {
+class MainLayout extends StatefulWidget {
   static const String routeName = '/main_layout';
 
   const MainLayout({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<MainLayout> createState() => _MainLayoutState();
+}
+
+class _MainLayoutState extends State<MainLayout> {
+  @override
+  void initState() {
+    final BottomNavCubit bottomNavCubit = getIt<BottomNavCubit>();
+    bottomNavCubit.reset();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +52,9 @@ class MainLayout extends StatelessWidget {
         labelText = 'Index 1 Content';
         break;
       case 2:
-        labelText = 'Index 2 Content';
-        break;
+        return const FamilyGroupScreen();
       case 3:
-        labelText = 'Index 3 Content';
-        break;
+        return const ProfileView();
       default:
         labelText = 'Default Content';
     }

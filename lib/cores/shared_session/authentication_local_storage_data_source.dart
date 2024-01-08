@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:akukom/features/auth/__auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
@@ -16,6 +17,10 @@ abstract class AuthLocalStorageDataSource {
   Future<void> saveLoginData(String email, String password);
 
   Future<AuthLocallySavedDetails> getSavedLoginData();
+
+  Future<User> saveUser(User user);
+
+  Future<User?> getUserData();
 
   Future<bool> checkIfLoginDataIsSaved();
 
@@ -47,6 +52,7 @@ class AuthLocalStorageDataSourceImp implements AuthLocalStorageDataSource {
 
   final String _isNotFirstTimeKey = 'IsNotFirstTimeUsingApp';
   final String _token = 'Token';
+  final String _user = 'User';
   final String _loginDetailsKey = 'LoginDetailsKey';
   final String _bioMetricStatus = 'BoiMetricStatus';
   final String _darkModeStatus = 'DarkModeStatus';
@@ -79,6 +85,26 @@ class AuthLocalStorageDataSourceImp implements AuthLocalStorageDataSource {
     final String value = json.encode(data);
 
     await storage.write(key: _loginDetailsKey, value: value);
+  }
+
+  @override
+  Future<User> saveUser(User user) async {
+    final String value = json.encode(user.toMap());
+
+    await storage.write(key: _user, value: value);
+
+    return user;
+  }
+
+  @override
+  Future<User?> getUserData() async {
+    final String? userData = await storage.read(key: _user);
+
+    if (userData == null) {
+      return null;
+    }
+
+    return User.fromJson(json.decode(userData));
   }
 
   @override

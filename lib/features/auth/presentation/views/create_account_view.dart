@@ -92,8 +92,8 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
               ),
               vSpace(24),
               TextFieldWidget(
-                hintText: AppStrings.password,
-                title: AppStrings.passwordHint,
+                hintText: AppStrings.passwordHint,
+                title: AppStrings.password,
                 textEditingController: _passwordController,
                 isPassword: true,
                 onChanged: _signupCubit.passwordChanged,
@@ -218,7 +218,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
 extension _CreateAccountFormListener on _CreateAccountFormState {
   void onSignupStateChanged(BuildContext context, SignupState state) async {
     if (state.status == SignupStatus.success) {
-      await SessionManager.instance
+      SessionManager.instance
           .setToken(state.signupEntity?.data?.accessToken ?? '');
       AppRouter.instance.navigateTo(CompleteCreateAccountView.routeName);
     } else if (state.status == SignupStatus.failure) {

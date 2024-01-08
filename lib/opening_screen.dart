@@ -68,7 +68,6 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 width: sp(342),
                 height: sp(80),
                 child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

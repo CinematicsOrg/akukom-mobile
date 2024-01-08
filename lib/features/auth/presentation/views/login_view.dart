@@ -2,6 +2,7 @@ import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
+import 'package:akukom/cores/shared_blocs/__shared_bloc.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
 import 'package:akukom/features/main_layout/__main_layout.dart';
@@ -57,6 +58,7 @@ class __LoginFormState extends State<_LoginForm> {
   final passwordController = TextEditingController();
   final LoginCubit _loginCubit = getIt<LoginCubit>();
   final SigninBloc _signinBloc = getIt<SigninBloc>();
+  final UserBloc _userBloc = getIt<UserBloc>();
 
   @override
   void initState() {
@@ -156,6 +158,7 @@ class __LoginFormState extends State<_LoginForm> {
 extension __LoginFormListener on __LoginFormState {
   void onLoginListener(BuildContext context, SigninState state) {
     if (state.status == SigninStatus.success) {
+      _userBloc.add(UpdateUser(state.signupEntity!.data!.user!));
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(

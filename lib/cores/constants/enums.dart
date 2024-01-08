@@ -32,3 +32,17 @@ enum NavBarType {
   messages,
   profile,
 }
+
+enum ProfileSettingsList {
+  account,
+  notificationPreferences,
+  privacyAndSafety,
+  logout,
+}
+
+enum AccountSettingsList {
+  accountInfo,
+  contactSync,
+  changePassword,
+  deactivateAccount,
+}

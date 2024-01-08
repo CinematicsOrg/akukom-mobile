@@ -36,11 +36,27 @@ class ApiEndpoints {
   /// Auth
   static final String signup = '$_baseUrlV1/auth/process/signup';
   static final String login = '$_baseUrlV1/auth/process/login';
-  static final String checkPhoneUsage = '$_baseUrlV1/auth/process/check-phone-usage';
-  static final String completeSignup = '$_baseUrlV1/auth/process/complete-signup';
-  static final String verifyPhoneNumber = '$_baseUrlV1/auth/process/verify-phone-number';
-  static final String forgotPasswordOtp = '$_baseUrlV1/auth/process/forgot-password-otp';
-  static final String forgotPasswordOtpVerification = '$_baseUrlV1/auth/process/forgot-password-otp-verification';
-  static final String changePassword = '$_baseUrlV1/auth/process/change-password';
-  // static final String verifyPhoneNumber = '$_baseUrlV1/auth/process/verify-phone-number';
+  static final String checkPhoneUsage =
+      '$_baseUrlV1/auth/process/check-phone-usage';
+  static final String completeSignup =
+      '$_baseUrlV1/auth/process/complete-signup';
+  static final String verifyPhoneNumber =
+      '$_baseUrlV1/auth/process/verify-phone-number';
+  static final String forgotPasswordOtp =
+      '$_baseUrlV1/auth/process/forgot-password-otp';
+  static final String forgotPasswordOtpVerification =
+      '$_baseUrlV1/auth/process/forgot-password-otp-verification';
+  static final String changePassword =
+      '$_baseUrlV1/auth/process/change-password';
+
+  /// Profile
+  static final String editProfile = '$_baseUrlV1/profile/edit-user-profile';
+  static final String profileChangePassword =
+      '$_baseUrlV1/profile/change-password';
+  static final String profileDeleteAccount =
+      '$_baseUrlV1/profile/delete-account';
+  static final String profileDeactivateAccount =
+      '$_baseUrlV1/profile/deactivate-account';
+  static final String uploadProfilePicture =
+      '$_baseUrlV1/profile/edit-profile-image';
 }

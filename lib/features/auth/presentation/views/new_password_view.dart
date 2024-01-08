@@ -62,16 +62,16 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
         return Column(
           children: [
             TextFieldWidget(
-              hintText: AppStrings.password,
-              title: AppStrings.passwordHint,
+              hintText: AppStrings.passwordHint,
+              title: AppStrings.password,
               textEditingController: _passwordController,
               onChanged: _createNewPasswordCubit.passwordChanged,
               isPassword: true,
             ),
             const VSpace(20),
             TextFieldWidget(
-              hintText: AppStrings.confirmPassword,
-              title: AppStrings.confirmPasswordHint,
+              hintText: AppStrings.confirmPasswordHint,
+              title: AppStrings.confirmPassword,
               textEditingController: _confirmPasswordController,
               onChanged: _createNewPasswordCubit.confirmPasswordChanged,
               isPassword: true,

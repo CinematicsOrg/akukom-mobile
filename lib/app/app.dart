@@ -1,3 +1,4 @@
+import 'package:akukom/cores/components/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeClass.darkTheme,
           initialRoute: "/",
           onGenerateRoute: RouteGenerator.generateRoute,
+          scaffoldMessengerKey: Toast.key,
           navigatorKey: AppRouter.instance.navigatorKey,
           debugShowCheckedModeBanner: false,
           navigatorObservers: [_appNavObserver],

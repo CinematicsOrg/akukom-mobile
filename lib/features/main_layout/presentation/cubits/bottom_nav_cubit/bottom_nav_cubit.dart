@@ -9,4 +9,8 @@ class BottomNavCubit extends Cubit<BottomNavState> {
   void updateIndex(int index) {
     emit(state.copyWith(index: index));
   }
+
+  void reset() {
+    emit(BottomNavState.initial());
+  }
 }

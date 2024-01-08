@@ -14,7 +14,7 @@ class CompleteSignupParams extends RequestParam {
   @override
   Map<String, dynamic> toMap() {
     return {
-      'phoneNumber': phoneNumber,
+      'phone': phoneNumber,
       'country': country,
       'tribe': tribe,
     };

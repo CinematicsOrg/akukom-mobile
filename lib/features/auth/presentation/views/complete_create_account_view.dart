@@ -178,10 +178,10 @@ extension _CreateAccountFormListener on __CompleteCreateAccountFormState {
         arguments: _signupCompleteCubit.state.phone.value,
       );
     } else if (state.status.isFailure) {
-      AppRouter.instance.navigateTo(
-        PhoneVerificationOtpView.routeName,
-        arguments: _signupCompleteCubit.state.phone.value,
-      );
+      // AppRouter.instance.navigateTo(
+      //   PhoneVerificationOtpView.routeName,
+      //   arguments: _signupCompleteCubit.state.phone.value,
+      // );
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(

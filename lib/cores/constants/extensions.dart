@@ -44,3 +44,59 @@ extension NavBarExtension on NavBarType {
     }
   }
 }
+
+extension ProfileSettingsListExtension on ProfileSettingsList {
+  String get label {
+    switch (this) {
+      case ProfileSettingsList.account:
+        return AppStrings.yourAccount;
+      case ProfileSettingsList.notificationPreferences:
+        return AppStrings.notificationPreferences;
+      case ProfileSettingsList.privacyAndSafety:
+        return AppStrings.privacyAndSafety;
+      case ProfileSettingsList.logout:
+        return AppStrings.logout;
+    }
+  }
+
+  String get icon {
+    switch (this) {
+      case ProfileSettingsList.account:
+        return AppIcons.profileSvg;
+      case ProfileSettingsList.notificationPreferences:
+        return AppIcons.notificationSvg;
+      case ProfileSettingsList.privacyAndSafety:
+        return AppIcons.lockSvg;
+      case ProfileSettingsList.logout:
+        return AppIcons.logoutSvg;
+    }
+  }
+}
+
+extension AccountSettingsListExtension on AccountSettingsList {
+  String get label {
+    switch (this) {
+      case AccountSettingsList.accountInfo:
+        return AppStrings.accountInfo;
+      case AccountSettingsList.contactSync:
+        return AppStrings.contactSync;
+      case AccountSettingsList.changePassword:
+        return AppStrings.changeYourPassword;
+      case AccountSettingsList.deactivateAccount:
+        return AppStrings.deactivateAccount;
+    }
+  }
+
+  String get icon {
+    switch (this) {
+      case AccountSettingsList.accountInfo:
+        return AppIcons.profileSvg;
+      case AccountSettingsList.contactSync:
+        return AppIcons.keySvg;
+      case AccountSettingsList.changePassword:
+        return AppIcons.keySvg;
+      case AccountSettingsList.deactivateAccount:
+        return AppIcons.lockSvg;
+    }
+  }
+}

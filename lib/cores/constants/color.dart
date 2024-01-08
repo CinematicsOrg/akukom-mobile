@@ -99,6 +99,7 @@ const Color kcGrey600 = Color(0xff757575);
 const Color kcGrey800 = Color(0xff424242);
 const Color kcGrey200 = Color(0xffEEEEEE);
 const Color kcGrey100 = Color(0xffF5F5F5);
+const Color kcTextGrey = Color(0xff8E8E8E);
 
 const Color kcWhite = Color(0xFFFFFFFF);
 const Color kcBlack = Color(0xFF000000);

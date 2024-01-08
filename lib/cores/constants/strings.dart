@@ -3,6 +3,7 @@ class AppStrings {
 
   // App Name
   static const String appName = 'akukom';
+  static const String cont = 'Continue';
 
   // Splash Screen
   static const String splashScreenHeaderText =
@@ -93,9 +94,64 @@ class AppStrings {
   static const String changePassword = 'Change password';
 
   // Password Reset Success Screen
-  static const String passwordResetSuccessful =
-      'Password reset successful!';
+  static const String passwordResetSuccessful = 'Password reset successful!';
   static const String youHaveSuccessfully =
       'You have successfully reset your password. You can now log in with your new password.';
   static const String continueToLogin = 'Continue to login';
+
+  // Profile
+  static const String profile = 'Profile';
+  static const String nothingHereYet = 'Nothing here yet';
+  static const String whenYouSaveMemories =
+      'When you save memories, they will appear here';
+  static const String whenYouCreateArticles =
+      'When you create articles, they will appear here';
+  static const String whenYouCreateFamilyTree =
+      'When you create family tree, they will appear here';
+  static const String shareProfile = 'Share profile';
+  static const String editProfile = 'Edit profile';
+  static const String memories = 'Memories';
+  static const String articles = 'Articles';
+  static const String nothingToShareYet = 'Nothing to share yet';
+  static const String yourAccount = 'Your account';
+  static const String notificationPreferences = 'Notification preferences';
+  static const String privacyAndSafety = 'Privacy and safety';
+  static const String logout = 'Logout';
+
+  static const String accountInfo = 'Account information';
+  static const String contactSync = 'Contact syncing';
+  static const String deactivateAccount = 'Deactivate your account';
+  static const String changeYourPassword = 'Change your password';
+  static const String country = 'Country';
+  static const String contactSyncing = 'Contact syncing';
+  static const String connectContact = 'Connect contacts';
+  static const String weWillSyncContacts =
+      'We’ll sync and securely store your contacts to help you connect with people you know on TimeLife.';
+  static const camera = 'Camera';
+  static const gallery = 'Gallery';
+
+  // Profile change password
+  static const String changePasswordTitle = 'Change password';
+  static const String currentPassword = 'Current password';
+  static const String currentPasswordHint = 'Enter your current password';
+
+  // Notifications preferences
+  static const String emailNotifications = 'Email notifications';
+  static const String activties = 'Activities';
+
+  // Privacy and safety
+  static const String privacyAndSafetyTitle = 'Privacy and safety';
+  static const String allowOthersToFindMe = 'Allow others to find me';
+  static const String ifYouDisable =
+      'If you disable ‘Allow others to find me’, other users will not receive suggestions to follow you.';
+  static const String selectCountry = 'Select country';
+
+  // Family Group
+
+  static const String familyGroup = 'Family group';
+  static const String createFamilyGroup = 'Create family group';
+  static const String noMoreMissed =
+      'No more missed fun family moments. You will not even have to do much';
+  static const String nowWeNeedSomeInfo =
+      'Now we need some information about you. Are you ready to move on?';
 }
