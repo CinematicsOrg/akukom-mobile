@@ -119,6 +119,22 @@ class RouteGenerator {
       case SendRequestView.routeName:
         return pageRoute(const SendRequestView());
 
+      case FamilyDetailsJoinView.routeName:
+        final args = settings.arguments as FamilyDataEntity?;
+        return pageRoute(
+          FamilyDetailsJoinView(
+            familyDataEntity: args,
+          ),
+        );
+
+      case FamilyDetailsView.routeName:
+        final args = settings.arguments as FamilyDataEntity?;
+        return pageRoute(
+          FamilyDetailsView(
+            familyDataEntity: args,
+          ),
+        );
+
       default:
         return errorRoute();
     }

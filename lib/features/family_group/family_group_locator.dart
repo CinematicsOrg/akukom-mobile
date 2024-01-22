@@ -109,4 +109,16 @@ void setupFamilyGroupLocator() {
       listFamilyUserCanJoinUseCase: getIt<ListFamilyUserCanJoinUseCase>(),
     ),
   );
+
+  getIt.registerFactory(
+    () => RequestsToJoinFamilyBloc(
+      requestToJoinFamilyUseCase: getIt<RequestToJoinFamilyUseCase>(),
+    ),
+  );
+
+  getIt.registerLazySingleton(
+    () => GetUserFamilyBloc(
+      getUserFamilyUseCase: getIt<GetUserFamilyUseCase>(),
+    ),
+  );
 }

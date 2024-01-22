@@ -12,12 +12,14 @@ extension Explaination on GetUserFamilyStatus {
 class GetUserFamilyState extends Equatable {
   final GetUserFamilyStatus status;
   final String? message;
-  final dynamic data;
+  final UserFamilyListEntity? data;
+  final List<FamilyDataEntity>? familyData;
   final Failures? failure;
   const GetUserFamilyState({
     this.status = GetUserFamilyStatus.initial,
     this.message,
     this.data,
+    this.familyData,
     this.failure,
   });
 
@@ -26,13 +28,15 @@ class GetUserFamilyState extends Equatable {
   GetUserFamilyState copyWith({
     GetUserFamilyStatus? status,
     String? message,
-    dynamic data,
+    UserFamilyListEntity? data,
+    List<FamilyDataEntity>? familyData,
     Failures? failure,
   }) {
     return GetUserFamilyState(
       status: status ?? this.status,
       message: message ?? this.message,
       data: data ?? this.data,
+      familyData: familyData ?? this.familyData,
       failure: failure ?? this.failure,
     );
   }
@@ -43,5 +47,6 @@ class GetUserFamilyState extends Equatable {
         message,
         data,
         failure,
+        familyData,
       ];
 }

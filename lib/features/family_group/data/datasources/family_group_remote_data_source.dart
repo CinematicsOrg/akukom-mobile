@@ -11,12 +11,13 @@ abstract class FamilyGroupRemoteDataSource {
   Future<BaseModel> updateFamily(RequestParam param);
   Future<BaseModel> addFamilyMemebers(RequestParam param);
   Future<BaseModel> listPendingFamily(NoParams param);
-  Future<FamilyUserCanJoinModel> listFamilyUserCanJoin(ListFamilyUserCanJoinParam param);
+  Future<FamilyUserCanJoinModel> listFamilyUserCanJoin(
+      ListFamilyUserCanJoinParam param);
   Future<BaseModel> getFamilyMembers(NoParams param);
   Future<BaseModel> getFamilyDetails(RequestParam param);
   Future<BaseModel> requestToJoinFamily(RequestParam param);
   Future<BaseModel> acceptOrRejectRequest(RequestParam param);
-  Future<BaseModel> getUserFamily(NoParams param);
+  Future<UserFamilyListModel> getUserFamily(NoParams param);
   Future<UsersListModel> getUsers(GetUsersParam param);
 }
 
@@ -76,7 +77,8 @@ class FamilyGroupRemoteDataSourceImpl implements FamilyGroupRemoteDataSource {
   }
 
   @override
-  Future<FamilyUserCanJoinModel> listFamilyUserCanJoin(ListFamilyUserCanJoinParam param) async {
+  Future<FamilyUserCanJoinModel> listFamilyUserCanJoin(
+      ListFamilyUserCanJoinParam param) async {
     final Map<String, dynamic> response = await httpHelper.get(
       "${ApiEndpoints.getFamilyListUserCanJoin}?search=asa",
     );
@@ -122,12 +124,12 @@ class FamilyGroupRemoteDataSourceImpl implements FamilyGroupRemoteDataSource {
   }
 
   @override
-  Future<BaseModel> getUserFamily(NoParams param) async {
+  Future<UserFamilyListModel> getUserFamily(NoParams param) async {
     final Map<String, dynamic> response = await httpHelper.get(
       ApiEndpoints.getUserFamily,
     );
 
-    return BaseModel.fromMap(response);
+    return UserFamilyListModel.fromJson(response);
   }
 
   @override

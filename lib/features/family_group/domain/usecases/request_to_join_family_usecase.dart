@@ -17,3 +17,22 @@ class RequestToJoinFamilyUseCase
     return await familyGroupRepository.requestToJoinFamily(params);
   }
 }
+
+class RequestToJoinFamilyParam extends RequestParam {
+  final String familyId;
+
+  RequestToJoinFamilyParam({required this.familyId});
+
+  @override
+  List<Object?> get props => [familyId];
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'family_id': familyId,
+    };
+  }
+
+  @override
+  String toString() => 'RequestToJoinFamilyParam(familyId: $familyId)';
+}

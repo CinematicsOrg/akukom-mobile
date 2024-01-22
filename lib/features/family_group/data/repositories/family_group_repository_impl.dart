@@ -63,12 +63,12 @@ class FamilyGroupRepositoryImpl extends FamilyGroupRepository {
   }
 
   @override
-  Future<Either<Failures, BaseEntity>> getUserFamily(NoParams param) {
+  Future<Either<Failures, UserFamilyListEntity>> getUserFamily(NoParams param) {
     final action = familyGroupRemoteDataSource.getUserFamily(
       param,
     );
 
-    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    final repoTryCatchHelper = RepoTryCatchHelper<UserFamilyListModel>();
     return repoTryCatchHelper.tryAction(() => action);
   }
 

@@ -1,6 +1,7 @@
 import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
+import 'package:akukom/cores/navigator/navigator.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/family_group/__family_group.dart';
 import 'package:flutter/material.dart';
@@ -96,52 +97,64 @@ class _RequestList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(bottom: 16.h),
-      child: SizedBox(
-        height: 41.h,
-        child: Row(
-          children: [
-            Container(
-              height: 40.h,
-              width: 40.w,
-              decoration: const BoxDecoration(
-                color: kcPrimaryColor,
-                shape: BoxShape.circle,
-              ),
-              child: Svg(
-                path: familyDataEntity?.image ?? AppStrings.na,
+      child: InkWell(
+        onTap: goToFamilyDetailsJoinView,
+        child: SizedBox(
+          height: 41.h,
+          child: Row(
+            children: [
+              Container(
                 height: 40.h,
                 width: 40.w,
-                svgType: SvgType.network,
-              )
-            ),
-            const HSpace(16),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    familyDataEntity?.name ?? AppStrings.na,
-                    fontSize: kfsMedium,
-                    fontWeight: FontWeight.bold,
+                decoration: const BoxDecoration(
+                  color: kcPrimaryColor,
+                  shape: BoxShape.circle,
+                ),
+                child: ClipOval(
+                  child: Image.network(
+                    familyDataEntity?.image ?? AppStrings.na,
+                    height: 40.h,
+                    width: 40.w,
+                    fit: BoxFit.cover,
                   ),
-                  const VSpace(4),
-                  TextWidget(
-                    familyDataEntity?.description ?? AppStrings.na,
-                    fontSize: kfsTiny,
-                    textColor: kcBlack700,
-                  ),
-                ],
+                ),
               ),
-            ),
-            const HSpace(16),
-            const Icon(
-              Icons.info_outline,
-              color: kcGrey600,
-            ),
-          ],
+              const HSpace(16),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextWidget(
+                      familyDataEntity?.name ?? AppStrings.na,
+                      fontSize: kfsMedium,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const VSpace(4),
+                    TextWidget(
+                      familyDataEntity?.description ?? AppStrings.na,
+                      fontSize: kfsTiny,
+                      textColor: kcBlack700,
+                    ),
+                  ],
+                ),
+              ),
+              const HSpace(16),
+              const Icon(
+                Icons.info_outline,
+                color: kcGrey600,
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  void goToFamilyDetailsJoinView() {
+    AppRouter.instance.navigateTo(
+      FamilyDetailsJoinView.routeName,
+      arguments: familyDataEntity,
     );
   }
 }

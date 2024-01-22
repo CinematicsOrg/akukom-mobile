@@ -20,7 +20,7 @@ abstract class FamilyGroupRepository {
   Future<Either<Failures, BaseEntity>> acceptOrRejectRequest(
       RequestParam param);
 
-  Future<Either<Failures, BaseEntity>> getUserFamily(NoParams param);
+  Future<Either<Failures, UserFamilyListEntity>> getUserFamily(NoParams param);
 
   Future<Either<Failures, UserListEntity>> getUsersList(GetUsersParam param);
 }

@@ -2,7 +2,7 @@ part of 'requests_to_join_family_bloc.dart';
 
 enum RequestsToJoinFamilyStatus { initial, loading, success, failure }
 
-extension Explaination on RequestsToJoinFamilyStatus {
+extension RequestsToJoinFamilyStatusX on RequestsToJoinFamilyStatus {
   bool get isInitial => this == RequestsToJoinFamilyStatus.initial;
   bool get isLoading => this == RequestsToJoinFamilyStatus.loading;
   bool get isSuccess => this == RequestsToJoinFamilyStatus.success;

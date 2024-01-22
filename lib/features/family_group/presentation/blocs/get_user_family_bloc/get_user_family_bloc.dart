@@ -31,6 +31,7 @@ class GetUserFamilyBloc extends Bloc<GetUserFamilyEvent, GetUserFamilyState> {
         state.copyWith(
           status: GetUserFamilyStatus.success,
           data: data,
+          familyData: data?.data?.docs,
         ),
       ),
     );

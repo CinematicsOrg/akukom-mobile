@@ -108,6 +108,8 @@ extension FamilyRequestTypeExtension on FamilyRequestType {
         return AppStrings.sendRequests;
       case FamilyRequestType.received:
         return AppStrings.seeRequests;
+      case FamilyRequestType.addFamily:
+        return AppStrings.addFamily;
     }
   }
 
@@ -117,6 +119,8 @@ extension FamilyRequestTypeExtension on FamilyRequestType {
         return AppIcons.cameraSvg;
       case FamilyRequestType.received:
         return AppIcons.shareSvg;
+      case FamilyRequestType.addFamily:
+        return AppIcons.addSvg;
     }
   }
 }

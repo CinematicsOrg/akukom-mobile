@@ -50,4 +50,5 @@ enum AccountSettingsList {
 enum FamilyRequestType {
   sent,
   received,
+  addFamily,
 }

@@ -8,7 +8,7 @@ abstract class RequestsToJoinFamilyEvent extends Equatable {
 }
 
 class RequestsToJoinFamilyUserEvent extends RequestsToJoinFamilyEvent {
-  final dynamic param;
+  final RequestToJoinFamilyParam param;
 
   const RequestsToJoinFamilyUserEvent({
     required this.param,

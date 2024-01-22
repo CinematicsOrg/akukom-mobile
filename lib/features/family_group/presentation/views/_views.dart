@@ -7,3 +7,5 @@ export 'create_family_event_view.dart';
 export 'family_view.dart';
 export 'send_request_view.dart';
 export 'received_request_view.dart';
+export 'family_details_join_view.dart';
+export 'family_details_view.dart';
