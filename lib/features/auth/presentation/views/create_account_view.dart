@@ -99,6 +99,12 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                 onChanged: _signupCubit.passwordChanged,
               ),
               vSpace(12),
+              TextWidget(
+                AppStrings.passRequirement,
+                fontSize: sp(14),
+                textColor: kcBlack700,
+                fontWeight: FontWeight.w400,
+              ),
               Row(
                 children: [
                   Checkbox(
@@ -113,6 +119,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   ),
                 ],
               ),
+
               vSpace(56),
               BlocConsumer<SignupBloc, SignupState>(
                 bloc: _signupBloc,

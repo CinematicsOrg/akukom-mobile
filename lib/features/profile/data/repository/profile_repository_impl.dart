@@ -3,8 +3,6 @@ import 'package:akukom/cores/entity/base_entity.dart';
 import 'package:akukom/cores/failures/base.dart';
 import 'package:akukom/cores/try_catch_helper/try_catch_helper.dart';
 import 'package:akukom/cores/usecase/params.dart';
-import 'package:akukom/features/auth/data/__data.dart';
-import 'package:akukom/features/auth/domain/__domain.dart';
 import 'package:akukom/features/profile/__profile.dart';
 import 'package:fpdart/fpdart.dart';
 
@@ -55,7 +53,8 @@ class ProfileRepositoryImpl extends ProfileRepository {
   }
 
   @override
-  Future<Either<Failures, EditProfileEntity>> uploadProfilePicture(RequestParam param) {
+  Future<Either<Failures, EditProfileEntity>> uploadProfilePicture(
+      RequestParam param) {
     final action = remoteDataSource.uploadProfilePicture(
       param,
     );

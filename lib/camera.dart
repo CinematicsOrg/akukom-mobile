@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:akukom/cores/constants/__constants.dart';
-import 'package:akukom/cores/constants/font_size.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

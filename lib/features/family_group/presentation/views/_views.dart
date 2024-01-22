@@ -1,2 +1,9 @@
 export 'family_group_screen.dart';
 export 'create_family_group_screen.dart';
+export 'add_family_memebers_view.dart';
+export 'family_chat_group_view.dart';
+export 'family_events_view.dart';
+export 'create_family_event_view.dart';
+export 'family_view.dart';
+export 'send_request_view.dart';
+export 'received_request_view.dart';

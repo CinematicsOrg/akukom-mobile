@@ -46,3 +46,8 @@ enum AccountSettingsList {
   changePassword,
   deactivateAccount,
 }
+
+enum FamilyRequestType {
+  sent,
+  received,
+}

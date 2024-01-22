@@ -154,4 +154,47 @@ class AppStrings {
       'No more missed fun family moments. You will not even have to do much';
   static const String nowWeNeedSomeInfo =
       'Now we need some information about you. Are you ready to move on?';
+  static const String criteria = 'Criteria';
+  static const String pleaseFillThisForm =
+      'Please fill this form. This form will help us get more  information about your family. ';
+  static const String familyName = 'Family name';
+  static const String familyNameHint = 'Enter your family name';
+  static const String familyDescription = 'Family description';
+  static const String familyDescriptionHint = 'Enter your family description';
+  static const String create = 'Create';
+  static const String cancel = 'Cancel';
+  static const String addFamilyMembers = 'Add family members';
+  static const String add = 'Add';
+  static const String done = 'Done';
+  static const String tag = 'Tag:';
+  static const String createEvent = 'Create event';
+  static const String events = 'Events';
+  static const String noFamilyEventYet = 'No family event yet!';
+  static const String newEventWillAppear = 'New event will appear here.';
+  static const String eventName = 'Event name';
+  static const String location = 'Location';
+  static const String date = 'Date';
+  static const String start = 'Start';
+  static const String stop = 'Stop';
+  static const String allDay = 'All day';
+  static const String alert = 'Alert';
+  static const String addAttendees = 'Add attendees';
+  static const String addAdttendesHint = 'E.g Jhon Doe';
+  static const String requests = 'Requests';
+  static const String seeRequests = 'See requests';
+  static const String sendRequests = 'Send requests';
+  static const String noGroupHereYet = 'No group here yet!';
+  static const String wouldYouLikeToCreate =
+      'Would you like to create a family group?';
+  static const String createFamily = 'Create family';
+  static const String noGroupYet = 'No group yet!';
+  static const String wouldYouLikeToJoin =
+      'Would you like to join a family group?';
+  static const String search = 'Search';
+  static const String sendRequest = 'Send request';
+  static const String createGroup = 'Create group';
+  static const String decline = 'Decline';
+  static const String accept = 'Accept';
+  static const String noRequestYet = 'No request yet!';
+  static const String na = 'N/A';
 }

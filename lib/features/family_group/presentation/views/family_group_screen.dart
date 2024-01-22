@@ -1,8 +1,10 @@
 import 'package:akukom/app/locator.dart';
 import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
+import 'package:akukom/cores/navigator/navigator.dart';
 import 'package:akukom/cores/shared_blocs/user_bloc/user_bloc.dart';
 import 'package:akukom/cores/utils/sizer_utils.dart';
+import 'package:akukom/features/family_group/__family_group.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,7 +61,7 @@ class _FamilyGroupInfo extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: 70.w),
           child: TextWidget(
-            'No more missed fun family moments. You will not even have to do much.',
+            AppStrings.noMoreMissed,
             fontSize: sp(
               kfsLarge,
             ),
@@ -70,7 +72,7 @@ class _FamilyGroupInfo extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: 70.w),
           child: TextWidget(
-            'Now we need some information about you. Are you ready to move on?',
+            AppStrings.nowWeNeedSomeInfo,
             fontSize: sp(
               kfsLarge,
             ),
@@ -80,8 +82,15 @@ class _FamilyGroupInfo extends StatelessWidget {
         const VSpace(
           60,
         ),
-        Button(text: 'Next', onTap: () {})
+        Button(
+          text: 'Next',
+          onTap: _navigateToCreateFamilyGroup,
+        )
       ],
     );
+  }
+
+  void _navigateToCreateFamilyGroup() {
+    AppRouter.instance.navigateTo(CreateFamilyGroupScreen.routeName);
   }
 }

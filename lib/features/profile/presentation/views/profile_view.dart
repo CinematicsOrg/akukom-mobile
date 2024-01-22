@@ -129,7 +129,7 @@ class _ProfileInfo extends StatelessWidget {
           children: [
             Expanded(
               child: Button(
-                text: 'Edit profile',
+                text: AppStrings.editProfile,
                 onTap: () =>
                     AppRouter.instance.navigateTo(EditProfileView.routeName),
               ),
@@ -137,7 +137,7 @@ class _ProfileInfo extends StatelessWidget {
             const HSpace(16),
             Expanded(
               child: Button.withBorderLine(
-                text: 'Share profile',
+                text: AppStrings.shareProfile,
                 color: kcWhite,
                 borderColor: kcBlack,
                 textColor: kcBlack,

@@ -13,6 +13,4 @@ class EditProfileEntity extends Equatable {
   List<Object?> get props => [
         user,
       ];
-
-  
 }

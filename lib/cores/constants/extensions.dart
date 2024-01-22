@@ -100,3 +100,23 @@ extension AccountSettingsListExtension on AccountSettingsList {
     }
   }
 }
+
+extension FamilyRequestTypeExtension on FamilyRequestType {
+  String get label {
+    switch (this) {
+      case FamilyRequestType.sent:
+        return AppStrings.sendRequests;
+      case FamilyRequestType.received:
+        return AppStrings.seeRequests;
+    }
+  }
+
+  String get icon {
+    switch (this) {
+      case FamilyRequestType.sent:
+        return AppIcons.cameraSvg;
+      case FamilyRequestType.received:
+        return AppIcons.shareSvg;
+    }
+  }
+}

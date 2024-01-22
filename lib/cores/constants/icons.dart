@@ -41,4 +41,7 @@ class AppIcons {
   static const String personAddSvg = '$_dir/person_add.svg';
   static const String storyImage = '$_dir/story_image.svg';
   static const String createFamilySvg = '$_dir/create_family.svg';
+  static const String cameraSvg = '$_dir/camera.svg';
+  static const String shareSvg = '$_dir/share.svg';
+  static const String vertSvg = '$_dir/vert.svg';
 }

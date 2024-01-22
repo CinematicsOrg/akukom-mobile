@@ -1,34 +1,134 @@
-// import 'package:dartz/dartz.dart';
-// import 'package:flutter/foundation.dart';
-// import 'package:akukom/core/error/failures.dart';
-// import 'package:akukom/core/error/exceptions.dart';
-// import 'package:akukom/features/family_group/data/datasources/family_group_remote_data_source.dart';
-// import 'package:akukom/features/family_group/data/responses/family_group_response.dart';
-// import 'package:akukom/features/family_group/domain/entities/family_group_entity.dart';
-// import 'package:akukom/features/family_group/domain/repositories/family_group_repository.dart';
-// import 'package:akukom/features/family_group/domain/usecases/fetch_family_group_usecase.dart';
+import 'package:akukom/cores/base_request_body/base_request_body.dart';
+import 'package:akukom/cores/entity/base_entity.dart';
+import 'package:akukom/cores/failures/base.dart';
+import 'package:akukom/cores/try_catch_helper/try_catch_helper.dart';
+import 'package:akukom/cores/usecase/params.dart';
+import 'package:akukom/features/family_group/__family_group.dart';
+import 'package:fpdart/fpdart.dart';
 
-// class FamilyGroupRepositoryImpl implements FamilyGroupRepository {
-//   FamilyGroupRemoteDataSource familyGroupRemoteDataSource;
+class FamilyGroupRepositoryImpl extends FamilyGroupRepository {
+  final FamilyGroupRemoteDataSource familyGroupRemoteDataSource;
 
-//   FamilyGroupRepositoryImpl({@required this.familyGroupRemoteDataSource});
+  FamilyGroupRepositoryImpl({required this.familyGroupRemoteDataSource});
 
-//   @override
-//   Future<Either<Failure, FamilyGroupEntity>> fetchFamilyGroup({@required FetchFamilyGroupParam params}) async {
-//     try {
-//       var _response = await familyGroupRemoteDataSource.fetchFamilyGroup(id: params.id);
-//       return Right(_mapPDResponseToEntity(response: _response));
-//     } on ServerException {
-//       return Left(ServerFailure());
-//     } catch (e) {
-//       return Left(ServerFailure());
-//     }
-//   }
+  @override
+  Future<Either<Failures, BaseEntity>> acceptOrRejectRequest(
+      RequestParam param) {
+    final action = familyGroupRemoteDataSource.acceptOrRejectRequest(
+      param,
+    );
 
-//   FamilyGroupEntity _mapPDResponseToEntity({@required FamilyGroupResponse response}) {
-//     return FamilyGroupEntity(
-//       id: response.id,
-//       name: response.name,
-//     );
-//   }
-// }
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> addFamilyMemebers(RequestParam param) {
+    final action = familyGroupRemoteDataSource.addFamilyMemebers(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, CreateFamilyEntity>> createFamily(CreateFamilyParam param) {
+    final action = familyGroupRemoteDataSource.createFamily(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<CreateFamilyModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> getFamilyDetails(RequestParam param) {
+    final action = familyGroupRemoteDataSource.getFamilyDetails(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> getFamilyMembers(NoParams param) {
+    final action = familyGroupRemoteDataSource.getFamilyMembers(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> getUserFamily(NoParams param) {
+    final action = familyGroupRemoteDataSource.getUserFamily(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, FamilyUserCanJoinEntity>> listFamilyUserCanJoin(ListFamilyUserCanJoinParam param) {
+    final action = familyGroupRemoteDataSource.listFamilyUserCanJoin(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<FamilyUserCanJoinModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> listPendingFamily(NoParams param) {
+    final action = familyGroupRemoteDataSource.listPendingFamily(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> requestToJoinFamily(RequestParam param) {
+    final action = familyGroupRemoteDataSource.requestToJoinFamily(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> updateFamily(RequestParam param) {
+    final action = familyGroupRemoteDataSource.updateFamily(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> userInFamily(RequestParam param) {
+    final action = familyGroupRemoteDataSource.userInFamily(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, UserListEntity>> getUsersList(GetUsersParam param) {
+    final action = familyGroupRemoteDataSource.getUsers(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<UsersListModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+}

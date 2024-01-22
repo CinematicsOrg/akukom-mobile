@@ -1,5 +1,6 @@
 import 'package:akukom/cores/shared_blocs/shared_bloc_locator.dart';
 import 'package:akukom/features/auth/auth_locator.dart';
+import 'package:akukom/features/family_group/__family_group.dart';
 import 'package:akukom/features/main_layout/main_layout_locator.dart';
 import 'package:akukom/features/profile/profile_setup_locator.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -40,6 +41,9 @@ class Locator {
 
     // -------- Profile -------- //
     setUpProfileLocator();
+
+    /// -------- Family Group -------- ///
+    setupFamilyGroupLocator();
   }
 
   static void _otherSetup() {

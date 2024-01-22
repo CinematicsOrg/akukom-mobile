@@ -98,6 +98,27 @@ class RouteGenerator {
       case CreateFamilyGroupScreen.routeName:
         return pageRoute(const CreateFamilyGroupScreen());
 
+      case AddFamilyMembersView.routeName:
+        return pageRoute(const AddFamilyMembersView());
+
+      case FamilyGroupChatView.routeName:
+        return pageRoute(const FamilyGroupChatView());
+
+      case FamilyEventView.routeName:
+        return pageRoute(const FamilyEventView());
+
+      case CreateFamilyEventView.routeName:
+        return pageRoute(const CreateFamilyEventView());
+
+      case FamilyView.routeName:
+        return pageRoute(const FamilyView());
+
+      case ReceivedRequestView.routeName:
+        return pageRoute(const ReceivedRequestView());
+
+      case SendRequestView.routeName:
+        return pageRoute(const SendRequestView());
+
       default:
         return errorRoute();
     }

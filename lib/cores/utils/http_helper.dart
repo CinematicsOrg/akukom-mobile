@@ -78,6 +78,49 @@ class HttpHelper {
     }
   }
 
+  Future<Map<String, dynamic>> postMultipartWithFields<T>({
+    required String url,
+    required List<MapEntry<String, http.MultipartFile>> files,
+    required T fields,
+  }) async {
+    try {
+      final Map<String, String> header = await headers();
+      var request = http.MultipartRequest('POST', Uri.parse(url));
+
+      if (fields is Map<String, String>) {
+        request.fields.addAll(fields);
+      } else {
+        // Handle other types of fields if needed
+        throw ArgumentError("Unsupported field type: ${fields.runtimeType}");
+      }
+
+      for (var fileEntry in files) {
+        request.files.add(fileEntry.value);
+      }
+
+      request.headers.addAll(header);
+
+      var streamedResponse = await request.send();
+      var response = await http.Response.fromStream(streamedResponse);
+
+      final Map<String, dynamic> result = json.decode(response.body);
+
+      if ((response.statusCode ~/ 100) == 2) {
+        return result;
+      } else {
+        throw 'Error: ${result['message']}';
+      }
+    } on FormatException catch (e) {
+      throw 'Unable to format data: $e';
+    } on http.ClientException catch (e) {
+      throw 'Client Exception: $e';
+    } on TimeoutException catch (e) {
+      throw 'Timeout Exception: $e';
+    } catch (e) {
+      throw 'An unexpected error occurred: $e';
+    }
+  }
+
   Future<Map<String, dynamic>> get(
     String url, {
     Map<String, dynamic>? query,

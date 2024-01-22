@@ -15,6 +15,7 @@ class NormalScaffoldWidget extends StatelessWidget {
     this.floatingActionButton,
     this.scrollController,
     this.useSafeArea = true, // Add this line
+    this.dismissKeyboardOnTap = false,
   }) : super(key: key);
 
   final Widget? drawer;
@@ -24,6 +25,7 @@ class NormalScaffoldWidget extends StatelessWidget {
   final AppBar? appBar;
   final bool usePadding;
   final bool useSingleScroll;
+  final bool? dismissKeyboardOnTap;
   final Color? bg;
   final GlobalKey<ScaffoldState>? scaffoldKey;
   final ScrollController? scrollController;
@@ -63,7 +65,12 @@ class NormalScaffoldWidget extends StatelessWidget {
       key: scaffoldKey,
       appBar: appBar,
       backgroundColor: bg ?? Theme.of(context).scaffoldBackgroundColor,
-      body: content,
+      body: dismissKeyboardOnTap == true
+          ? GestureDetector(
+              onTap: () => FocusScope.of(context).unfocus(),
+              child: content,
+            )
+          : content,
       drawer: drawer,
       bottomNavigationBar: bottomNavigationBar,
       floatingActionButton: floatingActionButton,

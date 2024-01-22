@@ -215,6 +215,7 @@ class _EditProfileForm extends StatefulWidget {
 class __EditProfileFormState extends State<_EditProfileForm> {
   final EditProfileCubit _editProfileCubit = getIt<EditProfileCubit>();
   final EditProfileBloc _editProfileBloc = getIt<EditProfileBloc>();
+  final UserBloc _userBloc = getIt<UserBloc>();
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -356,6 +357,10 @@ extension __EditProfileFormListener on __EditProfileFormState {
     EditProfileState state,
   ) {
     if (state.status == EditProfileStatus.success) {
+      final user = state.editProfileEntity?.user;
+      if (user != null) {
+        _userBloc.add(UpdateUser(user));
+      }
       Toast.showSuccess('Profile updated successfully');
     } else if (state.status == EditProfileStatus.failure) {
       Toast.showError('Profile update failed: ${state.failures?.message}');

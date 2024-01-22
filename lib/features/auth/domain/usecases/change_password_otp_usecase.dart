@@ -18,3 +18,4 @@ class ChangePasswordUseCase
     return await repository.changePassword(params);
   }
 }
+

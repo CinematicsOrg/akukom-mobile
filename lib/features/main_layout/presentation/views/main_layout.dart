@@ -52,7 +52,8 @@ class _MainLayoutState extends State<MainLayout> {
         labelText = 'Index 1 Content';
         break;
       case 2:
-        return const FamilyGroupScreen();
+        // return const FamilyGroupScreen();
+        return const FamilyView();
       case 3:
         return const ProfileView();
       default:

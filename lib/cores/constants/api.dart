@@ -59,4 +59,28 @@ class ApiEndpoints {
       '$_baseUrlV1/profile/deactivate-account';
   static final String uploadProfilePicture =
       '$_baseUrlV1/profile/edit-profile-image';
+
+  /// Family Group
+  static final String createFamilyGroup = '$_baseUrlV1/family/create-family';
+  static final String userInFamily = '$_baseUrlV1/family/user-in-family';
+  static final String updateFamilyDetails =
+      '$_baseUrlV1/family/update-family-details';
+  static final String addFamilyDetails =
+      '$_baseUrlV1/family/add-family-details';
+  static final String addFamilyMembers =
+      '$_baseUrlV1/family/add-family-members';
+  static final String listPendingRequests =
+      '$_baseUrlV1/family/list-pending-requests';
+  static final String getFamilyListUserCanJoin =
+      '$_baseUrlV1/family/get-family-list-user-can-join';
+  static final String getFamilyMembers =
+      '$_baseUrlV1/family/get-family-members';
+  static final String getFamilyDetails =
+      '$_baseUrlV1/family/get-family-details';
+  static final String requestToJoinFamily =
+      '$_baseUrlV1/family/request-to-join-family';
+  static final String acceptOrRejectRequest =
+      '$_baseUrlV1/family/accept-pending-requests';
+  static final String getUserFamily = '$_baseUrlV1/family/get-users-family';
+  static final String getUsers = '$_baseUrlV1/profile/get-users';
 }
