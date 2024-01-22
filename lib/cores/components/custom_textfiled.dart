@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../cores/constants/color.dart';
 import '../../cores/utils/sizer_utils.dart';
-import 'custom_text_widget.dart';
 
 class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget({
@@ -29,12 +28,16 @@ class TextFieldWidget extends StatefulWidget {
     this.boldHintText = false,
     this.inputFormatters,
     this.prefixText,
+    this.readOnly = false,
+    this.onTap,
   }) : super(key: key);
 
   final TextEditingController? textEditingController;
   final bool autoCorrect;
   final String hintText;
   final String? title;
+  final bool? readOnly;
+  final void Function()? onTap;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmitted;
@@ -72,11 +75,13 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                 style: GoogleFonts.inter(
                     color: isDarkMode ? kcWhite : kcBlack, fontSize: sp(13)),
               ),
-            verticalSpace(5),
+            const VSpace(5),
             TextFormField(
               inputFormatters: widget.inputFormatters,
               maxLines: widget.maxLine,
               enabled: widget.enabled,
+              readOnly: widget.readOnly ?? false,
+              onTap: widget.onTap,
               style: GoogleFonts.inter(
                 color: Theme.of(context).textTheme.titleMedium!.color,
                 fontWeight: FontWeight.w600,
@@ -109,9 +114,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: isDarkMode
-                        ? kcGrey100.withOpacity(0.7)
-                        : kcBlack,
+                    color: isDarkMode ? kcGrey100.withOpacity(0.7) : kcBlack,
                   ),
                   borderRadius: BorderRadius.circular(sr(8)),
                 ),

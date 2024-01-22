@@ -10,6 +10,10 @@ class UserEntity extends Equatable {
   final DateTime? createdAt;
   final DateTime? updatedAt;
   final String? id;
+  final String? country;
+  final String? tribe;
+  final String? phone;
+  final String? image;
 
   const UserEntity({
     required this.firstName,
@@ -20,6 +24,10 @@ class UserEntity extends Equatable {
     required this.createdAt,
     required this.updatedAt,
     required this.id,
+    required this.country,
+    required this.tribe,
+    required this.phone,
+    required this.image,
   });
 
   @override
@@ -33,11 +41,15 @@ class UserEntity extends Equatable {
       createdAt,
       updatedAt,
       id,
+      country,
+      tribe,
+      phone,
+      image,
     ];
   }
 
   @override
   String toString() {
-    return 'UserEntity(firstName: $firstName, lastName: $lastName, email: $email, hasVerifiedPhone: $hasVerifiedPhone, password: $password, createdAt: $createdAt, updatedAt: $updatedAt, id: $id)';
+    return 'UserEntity(firstName: $firstName, lastName: $lastName, email: $email, hasVerifiedPhone: $hasVerifiedPhone, password: $password, createdAt: $createdAt, updatedAt: $updatedAt, id: $id, country: $country, tribe: $tribe, phone: $phone, image: $image)';
   }
 }

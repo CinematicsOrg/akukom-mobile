@@ -1,9 +1,11 @@
 import 'package:akukom/app/locator.dart';
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
+import 'package:akukom/cores/shared_blocs/__shared_bloc.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
+import 'package:akukom/features/main_layout/__main_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,24 +19,27 @@ class LoginView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
+          const VSpace(30),
           const AuthHeaderWidget(AppStrings.welcomeBack),
-          verticalSpace(35),
+          const VSpace(35),
           const _LoginForm(),
-          verticalSpace(250),
+          const VSpace(250),
           Align(
             alignment: Alignment.center,
-            child: TwoSpanTextWidget(
-              AppStrings.dontHaveAnAccount,
-              AppStrings.signUp,
-              fontSize: sp(14),
-              fontSize2: sp(14),
-              textColor: kcBlack700,
-              textColor2: kcPrimaryColor,
-              textAlign: TextAlign.center,
+            child: GestureDetector(
+              onTap: () =>
+                  AppRouter.instance.navigateTo(CreateAccountView.routeName),
+              child: TwoSpanTextWidget(
+                AppStrings.dontHaveAnAccount,
+                AppStrings.signUp,
+                fontSize: sp(14),
+                fontSize2: sp(14),
+                textColor: kcBlack700,
+                textColor2: kcPrimaryColor,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
-          // verticalSpace(58),
         ],
       ),
     );
@@ -53,6 +58,7 @@ class __LoginFormState extends State<_LoginForm> {
   final passwordController = TextEditingController();
   final LoginCubit _loginCubit = getIt<LoginCubit>();
   final SigninBloc _signinBloc = getIt<SigninBloc>();
+  final UserBloc _userBloc = getIt<UserBloc>();
 
   @override
   void initState() {
@@ -64,7 +70,7 @@ class __LoginFormState extends State<_LoginForm> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-    _loginCubit.close();
+    _signinBloc.close();
     super.dispose();
   }
 
@@ -82,7 +88,7 @@ class __LoginFormState extends State<_LoginForm> {
               textInputType: TextInputType.emailAddress,
               onChanged: _loginCubit.emailChanged,
             ),
-            verticalSpace(20),
+            const VSpace(20),
             TextFieldWidget(
               hintText: AppStrings.passwordHint,
               title: AppStrings.password,
@@ -91,7 +97,7 @@ class __LoginFormState extends State<_LoginForm> {
               onChanged: _loginCubit.passwordChanged,
               isPassword: true,
             ),
-            verticalSpace(16),
+            const VSpace(16),
             Align(
               alignment: Alignment.bottomRight,
               child: GestureDetector(
@@ -107,7 +113,7 @@ class __LoginFormState extends State<_LoginForm> {
                 ),
               ),
             ),
-            verticalSpace(81),
+            const VSpace(81),
             BlocConsumer<SigninBloc, SigninState>(
               bloc: _signinBloc,
               listener: onLoginListener,
@@ -124,10 +130,6 @@ class __LoginFormState extends State<_LoginForm> {
                       ? kcPrimaryColor
                       : kcGrey400.withOpacity(0.5),
                   onTap: login,
-                  // onTap: () {
-                  //   AppRouter.instance
-                  //       .navigateTo(CompleteCreateAccountView.routeName);
-                  // },
                 );
               },
             ),
@@ -156,6 +158,7 @@ class __LoginFormState extends State<_LoginForm> {
 extension __LoginFormListener on __LoginFormState {
   void onLoginListener(BuildContext context, SigninState state) {
     if (state.status == SigninStatus.success) {
+      _userBloc.add(UpdateUser(state.signupEntity!.data!.user!));
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(
@@ -166,9 +169,12 @@ extension __LoginFormListener on __LoginFormState {
               textColor: kcWhite,
               fontWeight: FontWeight.w400,
             ),
-            backgroundColor: kcErrorColor,
+            backgroundColor: kcPrimaryColor,
           ),
         );
+      AppRouter.instance.navigateToAndReplace(
+        MainLayout.routeName,
+      );
     } else if (state.status == SigninStatus.failure) {
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()

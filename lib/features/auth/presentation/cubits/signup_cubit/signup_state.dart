@@ -26,10 +26,12 @@ class SignupCubitState extends Equatable {
     Password? password,
     bool? agree,
   }) {
-    bool updatedIsValid = (firstname ?? this.firstname).isValid &&
+    bool? updatedIsValid = (firstname ?? this.firstname).isValid &&
         (lastname ?? this.lastname).isValid &&
         (email ?? this.email).isValid &&
-        (password ?? this.password).isValid && agree == true;
+        (password ?? this.password).isValid &&
+        (agree ?? this.agree) == true;
+
     return SignupCubitState(
       firstname: firstname ?? this.firstname,
       lastname: lastname ?? this.lastname,

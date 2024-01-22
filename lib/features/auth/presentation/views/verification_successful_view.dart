@@ -1,10 +1,9 @@
 import 'package:akukom/app/locator.dart';
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
-import 'package:akukom/features/auth/presentation/views/__views.dart';
 import 'package:flutter/material.dart';
 
 class VerificationSuccessfulView extends StatelessWidget {
@@ -15,7 +14,8 @@ class VerificationSuccessfulView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SignupCubit _signupCubit = getIt<SignupCubit>();
+    final SignupCubit signupCubit = getIt<SignupCubit>();
+    final email = signupCubit.state.email.value;
     return NormalScaffoldWidget(
       useSingleScroll: false,
       body: Column(
@@ -28,6 +28,7 @@ class VerificationSuccessfulView extends StatelessWidget {
                 child: ImageWidget(
                   imageTypes: ImageTypes.asset,
                   imageUrl: AppImages.bigGreenTick,
+                  color: kcPrimaryColor,
                 ),
               ),
             ),
@@ -45,13 +46,13 @@ class VerificationSuccessfulView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   TextWidget(
-                    _signupCubit.state.email.value,
+                    email,
                     fontSize: sp(23),
                     fontWeight: FontWeight.w600,
                     textAlign: TextAlign.center,
                     textColor: kcPrimaryColor,
                   ),
-                  verticalSpace(16),
+                  vSpace(16),
                   TextWidget(
                     AppStrings.letSetYou,
                     fontSize: sp(16),
@@ -59,7 +60,7 @@ class VerificationSuccessfulView extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textColor: kcBlack700,
                   ),
-                  verticalSpace(96),
+                  vSpace(96),
                   Button(
                     text: AppStrings.home,
                     // onTap: () => AppRouter.instance.goToAndRemoveUntil(

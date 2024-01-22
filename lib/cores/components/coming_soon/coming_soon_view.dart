@@ -1,7 +1,7 @@
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:flutter/material.dart';
 import '../../navigator/navigator.dart';
-import '../components.dart';
+import '../__components.dart';
 import '../../utils/utils.dart';
 
 class ComingSoonPage extends StatelessWidget {
@@ -17,7 +17,7 @@ class ComingSoonPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          horizontalSpace(double.infinity),
+          hSpace(double.infinity),
           Container(
             color: Colors.grey.shade100,
             child: ImageWidget(
@@ -27,14 +27,14 @@ class ComingSoonPage extends StatelessWidget {
               width: w(270),
             ),
           ),
-          verticalSpace(),
+          vSpace(),
           TextWidget(
             'Recon Premium is \ncoming soon!',
             fontSize: sp(24),
             fontWeight: FontWeight.w600,
             textAlign: TextAlign.center,
           ),
-          verticalSpace(20),
+          vSpace(20),
           Button(
             text: "Okay",
             onTap: AppRouter.instance.goBack,

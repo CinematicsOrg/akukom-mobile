@@ -6,8 +6,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../constants/color.dart';
-
 class ImageWidget extends StatelessWidget {
   const ImageWidget({
     Key? key,
@@ -154,10 +152,15 @@ class ImageWidget extends StatelessWidget {
           width: width,
           child: SvgPicture.asset(
             imageUrl!,
-            color: useIconColor ? kcPrimaryColor.withOpacity(0.6) : color,
+            // color: useIconColor ? kcPrimaryColor.withOpacity(0.6) : color,
+            colorFilter: ColorFilter.mode(
+              useIconColor
+                  ? kcPrimaryColor.withOpacity(0.6)
+                  : color ?? kcPrimaryColor.withOpacity(0.6),
+              BlendMode.srcIn,
+            ),
           ),
         );
     }
   }
 }
-

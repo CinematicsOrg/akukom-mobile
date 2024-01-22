@@ -28,8 +28,8 @@ class DropDownWidget<T> extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextWidget(title, fontSize: sp(16), fontWeight: FontWeight.w600),
-        verticalSpace(5),
+        TextWidget(title, fontSize: sp(16), fontWeight: FontWeight.w400),
+        const VSpace(5),
         SizedBox(
           height: sp(55),
           child: DropdownButtonFormField<T>(
@@ -53,7 +53,7 @@ class DropDownWidget<T> extends StatelessWidget {
 
               onTap!(newValue as T);
             },
-            iconEnabledColor: kcPrimaryColor,
+            iconEnabledColor: kcBlack,
             decoration: InputDecoration(
               filled: true,
               fillColor: context.isDarkMode
@@ -61,19 +61,19 @@ class DropDownWidget<T> extends StatelessWidget {
                   : const Color(0xFFF5F6F6),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: context.isDarkMode ? kcGrey400 : kcPrimaryColor,
+                  color: context.isDarkMode ? kcGrey400 : kcBlack,
                 ),
                 borderRadius: BorderRadius.circular(sr(5.0)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: context.isDarkMode ? kcPrimaryColor : kcGrey400,
+                  color: context.isDarkMode ? kcBlack : kcGrey400,
                 ),
                 borderRadius: BorderRadius.circular(sr(5.0)),
               ),
               disabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: context.isDarkMode ? kcPrimaryColor : kcGrey400,
+                  color: context.isDarkMode ? kcBlack : kcGrey400,
                 ),
                 borderRadius: BorderRadius.circular(sr(5.0)),
               ),

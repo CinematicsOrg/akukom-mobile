@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../navigator/navigator.dart';
 
 import '../../utils/utils.dart';
-import '../components.dart';
+import '../__components.dart';
 
 class COmingSoonStateWidget extends StatelessWidget {
   static const String routeName = '/comingSoonStateWidget';
@@ -24,13 +24,13 @@ class COmingSoonStateWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        verticalSpace(20),
+        vSpace(20),
         TextWidget(
           title,
           fontSize: sp(20),
           fontWeight: FontWeight.w400,
         ),
-        verticalSpace(5),
+        vSpace(5),
         // ColoredBox(
         //   color: kcGrey100,
         // Lottie.asset(
@@ -41,7 +41,7 @@ class COmingSoonStateWidget extends StatelessWidget {
         //   fit: BoxFit.fill,
         // ),
         // ),
-        verticalSpace(20),
+        vSpace(20),
         SizedBox(
           width: sw(75),
           child: TextWidget(
@@ -51,9 +51,9 @@ class COmingSoonStateWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        verticalSpace(25),
+        vSpace(25),
         Button(text: "Okay", onTap: onTap ?? AppRouter.instance.goBack),
-        verticalSpace(),
+        vSpace(),
       ],
     );
   }

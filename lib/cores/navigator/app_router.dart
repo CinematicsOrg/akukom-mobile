@@ -1,3 +1,4 @@
+import 'package:akukom/features/main_layout/__main_layout.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -34,6 +35,12 @@ class AppRouter {
     return navigatorKey.currentState!.pushReplacementNamed(
       routeName,
       arguments: arguments,
+    );
+  }
+
+  Future<dynamic> navigateToADashboard() {
+    return navigatorKey.currentState!.pushReplacementNamed(
+      MainLayout.routeName,
     );
   }
 

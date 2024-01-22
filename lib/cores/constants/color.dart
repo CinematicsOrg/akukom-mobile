@@ -84,11 +84,14 @@ class AppColors {
 }
 
 // const Color kcDarkTextColor = Color(0xff121111);
-const Color kcPrimaryColor = Color(0xff336633);
+const Color kcPrimaryColor = Color(0xffFF8958);
 const Color kcSecondaryColor = Color(0xFF11A27F);
 
 const Color kcTextColor = Color(0xFF111213);
 const Color kcSoftTextColor = Color(0xFF4F5E62);
+
+const Color kcButtonColor = Color(0xffFF8958);
+const Color kcInactiveButtonColor = Color(0xFFFFC4AB);
 
 const Color kcGreyLight = Color(0xffEEEEEE);
 const Color kcGrey400 = Color(0xffBDBDBD);
@@ -96,6 +99,7 @@ const Color kcGrey600 = Color(0xff757575);
 const Color kcGrey800 = Color(0xff424242);
 const Color kcGrey200 = Color(0xffEEEEEE);
 const Color kcGrey100 = Color(0xffF5F5F5);
+const Color kcTextGrey = Color(0xff8E8E8E);
 
 const Color kcWhite = Color(0xFFFFFFFF);
 const Color kcBlack = Color(0xFF000000);

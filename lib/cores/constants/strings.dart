@@ -3,6 +3,7 @@ class AppStrings {
 
   // App Name
   static const String appName = 'akukom';
+  static const String cont = 'Continue';
 
   // Splash Screen
   static const String splashScreenHeaderText =
@@ -49,6 +50,8 @@ class AppStrings {
   static const String phoneNumberHint = 'Your phone number';
   static const String countryOfResidence = 'Country of residence';
   static const String countryOfResidenceHint = 'Please Select';
+  static const String tribe = 'Tribe';
+  static const String tribeHint = 'Enter your tribe';
 
   // Phone Verification Screen
   static const String verifyYourNumber = 'Verify phone number';
@@ -91,9 +94,110 @@ class AppStrings {
   static const String changePassword = 'Change password';
 
   // Password Reset Success Screen
-  static const String passwordResetSuccessful =
-      'Password reset successful!';
+  static const String passwordResetSuccessful = 'Password reset successful!';
   static const String youHaveSuccessfully =
       'You have successfully reset your password. You can now log in with your new password.';
   static const String continueToLogin = 'Continue to login';
+
+  // Profile
+  static const String profile = 'Profile';
+  static const String nothingHereYet = 'Nothing here yet';
+  static const String whenYouSaveMemories =
+      'When you save memories, they will appear here';
+  static const String whenYouCreateArticles =
+      'When you create articles, they will appear here';
+  static const String whenYouCreateFamilyTree =
+      'When you create family tree, they will appear here';
+  static const String shareProfile = 'Share profile';
+  static const String editProfile = 'Edit profile';
+  static const String memories = 'Memories';
+  static const String articles = 'Articles';
+  static const String nothingToShareYet = 'Nothing to share yet';
+  static const String yourAccount = 'Your account';
+  static const String notificationPreferences = 'Notification preferences';
+  static const String privacyAndSafety = 'Privacy and safety';
+  static const String logout = 'Logout';
+
+  static const String accountInfo = 'Account information';
+  static const String contactSync = 'Contact syncing';
+  static const String deactivateAccount = 'Deactivate your account';
+  static const String changeYourPassword = 'Change your password';
+  static const String country = 'Country';
+  static const String contactSyncing = 'Contact syncing';
+  static const String connectContact = 'Connect contacts';
+  static const String weWillSyncContacts =
+      'We’ll sync and securely store your contacts to help you connect with people you know on TimeLife.';
+  static const camera = 'Camera';
+  static const gallery = 'Gallery';
+
+  // Profile change password
+  static const String changePasswordTitle = 'Change password';
+  static const String currentPassword = 'Current password';
+  static const String currentPasswordHint = 'Enter your current password';
+
+  // Notifications preferences
+  static const String emailNotifications = 'Email notifications';
+  static const String activties = 'Activities';
+
+  // Privacy and safety
+  static const String privacyAndSafetyTitle = 'Privacy and safety';
+  static const String allowOthersToFindMe = 'Allow others to find me';
+  static const String ifYouDisable =
+      'If you disable ‘Allow others to find me’, other users will not receive suggestions to follow you.';
+  static const String selectCountry = 'Select country';
+
+  // Family Group
+
+  static const String familyGroup = 'Family group';
+  static const String createFamilyGroup = 'Create family group';
+  static const String noMoreMissed =
+      'No more missed fun family moments. You will not even have to do much';
+  static const String nowWeNeedSomeInfo =
+      'Now we need some information about you. Are you ready to move on?';
+  static const String criteria = 'Criteria';
+  static const String pleaseFillThisForm =
+      'Please fill this form. This form will help us get more  information about your family. ';
+  static const String familyName = 'Family name';
+  static const String familyNameHint = 'Enter your family name';
+  static const String familyDescription = 'Family description';
+  static const String familyDescriptionHint = 'Enter your family description';
+  static const String create = 'Create';
+  static const String cancel = 'Cancel';
+  static const String addFamilyMembers = 'Add family members';
+  static const String add = 'Add';
+  static const String done = 'Done';
+  static const String tag = 'Tag:';
+  static const String createEvent = 'Create event';
+  static const String events = 'Events';
+  static const String noFamilyEventYet = 'No family event yet!';
+  static const String newEventWillAppear = 'New event will appear here.';
+  static const String eventName = 'Event name';
+  static const String location = 'Location';
+  static const String date = 'Date';
+  static const String start = 'Start';
+  static const String stop = 'Stop';
+  static const String allDay = 'All day';
+  static const String alert = 'Alert';
+  static const String addAttendees = 'Add attendees';
+  static const String addAdttendesHint = 'E.g Jhon Doe';
+  static const String requests = 'Requests';
+  static const String seeRequests = 'See requests';
+  static const String sendRequests = 'Send requests';
+  static const String noGroupHereYet = 'No group here yet!';
+  static const String wouldYouLikeToCreate =
+      'Would you like to create a family group?';
+  static const String createFamily = 'Create family';
+  static const String noGroupYet = 'No group yet!';
+  static const String wouldYouLikeToJoin =
+      'Would you like to join a family group?';
+  static const String search = 'Search';
+  static const String sendRequest = 'Send request';
+  static const String createGroup = 'Create group';
+  static const String decline = 'Decline';
+  static const String accept = 'Accept';
+  static const String noRequestYet = 'No request yet!';
+  static const String addFamily = 'Add family';
+  static const String na = 'N/A';
+  static const String defaultImage =
+      'https://storage.googleapis.com/timelifeapp-d1475.appspot.com/1705164095956-family-image-Screenshot%202021-06-10%20at%208.44.08%20AM.png?GoogleAccessId=firebase-adminsdk-diu18%40timelifeapp-d1475.iam.gserviceaccount.com&Expires=16447017600&Signature=QBDZoWXklXkyunIyl33glqKNVpOkKPJs56%2BQaX1dJeuSbwDSCtCqeWh%2FPmpcqWIDjnOgseMlCX6%2FLp9qs0mH7GAn%2FXOWth5VD1VeLv2tttheKjZ985OdnHU%2Bjz1qsHg8LO23M5RBMDK7Ro48Mc4SgSZtTvL3ipktyqY%2F5g7L%2Fg%2BilRwHs10LZ6wZzbYp383Rbm82nsnwIlSZu3bLCbK%2BC2er6e8L0eDsW7teKQD%2FvzafMloDWR1ONHJYnAgaECG9GRQ0FckdgS4fztLBEB0Q6l0KDTamVKrcwI9EIrwa6i1I734ucmz8kmgwr58r3jqPdHdiLAo9U4kJ7GpwcjhQxw%3D%3D';
 }

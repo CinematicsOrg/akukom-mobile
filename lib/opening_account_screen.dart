@@ -1,4 +1,4 @@
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/color.dart';
 import 'package:akukom/cores/constants/extensions.dart';
 import 'package:akukom/cores/constants/strings.dart';
@@ -45,7 +45,7 @@ class _OpeningAccountWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 18),
       child: Column(
         children: [
-          verticalSpace(44),
+          const VSpace(44),
           Align(
             alignment: Alignment.topLeft,
             child: TextWidget(
@@ -56,7 +56,7 @@ class _OpeningAccountWidget extends StatelessWidget {
               ),
             ),
           ),
-          verticalSpace(16),
+          const VSpace(16),
           SizedBox(
             child: Align(
               alignment: Alignment.topLeft,
@@ -68,16 +68,16 @@ class _OpeningAccountWidget extends StatelessWidget {
               ),
             ),
           ),
-          verticalSpace(45),
+          const VSpace(45),
           Button(
-            text: AppStrings.signIn,
+            text: AppStrings.login,
             onTap: () {
               AppRouter.instance.navigateTo(
                 LoginView.routeName,
               );
             },
           ),
-          verticalSpace(14),
+          const VSpace(14),
           Button.withBorderLine(
             text: AppStrings.createAccount,
             onTap: () {
@@ -89,7 +89,7 @@ class _OpeningAccountWidget extends StatelessWidget {
             textColor: kcBlack,
             borderColor: kcBlack,
           ),
-          verticalSpace(25),
+          const VSpace(25),
           TextWidget(
             AppStrings.byContinuing,
             fontSize: sp(15),
@@ -104,7 +104,6 @@ class _OpeningAccountWidget extends StatelessWidget {
                 fontSize: sp(15),
                 textColor: kcPrimaryColor,
                 fontWeight: FontWeight.w400,
-                decoration: TextDecoration.underline,
               ),
               TextWidget(
                 AppStrings.and,
@@ -117,7 +116,6 @@ class _OpeningAccountWidget extends StatelessWidget {
                 fontSize: sp(15),
                 textColor: kcPrimaryColor,
                 fontWeight: FontWeight.w400,
-                decoration: TextDecoration.underline,
               ),
             ],
           ),

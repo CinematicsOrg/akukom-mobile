@@ -13,3 +13,4 @@ export 'success_view.dart';
 export 'web_view.dart';
 export 'custom_normal_scaffold_widget.dart';
 export 'svg.dart';
+export 'bottom_navbar.dart';

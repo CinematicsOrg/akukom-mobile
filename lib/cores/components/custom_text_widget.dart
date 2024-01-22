@@ -67,6 +67,7 @@ class TextWidget extends StatelessWidget {
       overflow: overflow,
       softWrap: true,
       maxLines: maxLines,
+      // ignore: deprecated_member_use
       textScaleFactor: 0.8,
     );
   }

@@ -1,3 +1,5 @@
+import 'package:akukom/features/auth/__auth.dart';
+
 import '../../app/locator.dart';
 import 'authentication_local_storage_data_source.dart';
 
@@ -35,5 +37,14 @@ class SessionManager {
 
   Future<String?> get getSavedToken async {
     return await _authLocalStorageDataSource.getToken();
+  }
+
+  Future<User> saveUserData(User user) async {
+    await _authLocalStorageDataSource.saveUser(user);
+    return user;
+  }
+
+  Future<User?> get getUser async {
+    return await _authLocalStorageDataSource.getUserData();
   }
 }

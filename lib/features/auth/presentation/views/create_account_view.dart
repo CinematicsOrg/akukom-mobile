@@ -3,7 +3,7 @@ import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/features/auth/presentation/__presentation.dart';
 
 import 'package:akukom/cores/constants/__constants.dart';
@@ -20,9 +20,9 @@ class CreateAccountView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
+          vSpace(30),
           const AuthHeaderWidget(AppStrings.joinUs),
-          verticalSpace(35),
+          vSpace(35),
           const _CreateAccountForm(),
         ],
       ),
@@ -70,35 +70,41 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
           child: Column(
             children: [
               TextFieldWidget(
-                hintText: AppStrings.firstName,
-                title: AppStrings.firstNameHint,
+                hintText: AppStrings.firstNameHint,
+                title: AppStrings.firstName,
                 textEditingController: _firstNameController,
                 onChanged: _signupCubit.firstnameChanged,
               ),
-              verticalSpace(24),
+              vSpace(24),
               TextFieldWidget(
-                hintText: AppStrings.lastName,
-                title: AppStrings.lastNameHint,
+                hintText: AppStrings.lastNameHint,
+                title: AppStrings.lastName,
                 textEditingController: _lastNameController,
                 onChanged: _signupCubit.lastnameChanged,
               ),
-              verticalSpace(24),
+              vSpace(24),
               TextFieldWidget(
-                hintText: AppStrings.email,
-                title: AppStrings.emailHint,
+                hintText: AppStrings.emailHint,
+                title: AppStrings.email,
                 textEditingController: _emailController,
                 textInputType: TextInputType.emailAddress,
                 onChanged: _signupCubit.emailChanged,
               ),
-              verticalSpace(24),
+              vSpace(24),
               TextFieldWidget(
-                hintText: AppStrings.password,
-                title: AppStrings.passwordHint,
+                hintText: AppStrings.passwordHint,
+                title: AppStrings.password,
                 textEditingController: _passwordController,
                 isPassword: true,
                 onChanged: _signupCubit.passwordChanged,
               ),
-              verticalSpace(12),
+              vSpace(12),
+              TextWidget(
+                AppStrings.passRequirement,
+                fontSize: sp(14),
+                textColor: kcBlack700,
+                fontWeight: FontWeight.w400,
+              ),
               Row(
                 children: [
                   Checkbox(
@@ -113,7 +119,8 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   ),
                 ],
               ),
-              verticalSpace(56),
+
+              vSpace(56),
               BlocConsumer<SignupBloc, SignupState>(
                 bloc: _signupBloc,
                 listener: onSignupStateChanged,
@@ -137,7 +144,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   );
                 },
               ),
-              verticalSpace(12),
+              vSpace(12),
               Row(
                 children: [
                   const Expanded(
@@ -161,33 +168,36 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
                   ),
                 ],
               ),
-              verticalSpace(16),
+              vSpace(16),
               Row(
                 children: [
                   const _SignUpOptions(
                     imagePath: AppIcons.facebook,
                   ),
-                  horizontalSpace(13),
+                  hSpace(13),
                   const _SignUpOptions(
                     imagePath: AppIcons.google,
                   ),
-                  horizontalSpace(13),
+                  hSpace(13),
                   const _SignUpOptions(
                     imagePath: AppIcons.apple,
                   ),
                 ],
               ),
-              verticalSpace(30),
-              const Center(
-                child: TwoSpanTextWidget(
-                  AppStrings.alreadyHaveAnAccount,
-                  AppStrings.login,
-                  textColor: kcBlack700,
-                  textColor2: kcPrimaryColor,
-                  fontWeight2: FontWeight.w700,
+              vSpace(30),
+              GestureDetector(
+                onTap: () => AppRouter.instance.navigateTo(LoginView.routeName),
+                child: const Center(
+                  child: TwoSpanTextWidget(
+                    AppStrings.alreadyHaveAnAccount,
+                    AppStrings.login,
+                    textColor: kcBlack700,
+                    textColor2: kcPrimaryColor,
+                    fontWeight2: FontWeight.w700,
+                  ),
                 ),
               ),
-              verticalSpace(40),
+              vSpace(40),
             ],
           ),
         );
@@ -215,7 +225,7 @@ class _CreateAccountFormState extends State<_CreateAccountForm> {
 extension _CreateAccountFormListener on _CreateAccountFormState {
   void onSignupStateChanged(BuildContext context, SignupState state) async {
     if (state.status == SignupStatus.success) {
-      await SessionManager.instance
+      SessionManager.instance
           .setToken(state.signupEntity?.data?.accessToken ?? '');
       AppRouter.instance.navigateTo(CompleteCreateAccountView.routeName);
     } else if (state.status == SignupStatus.failure) {

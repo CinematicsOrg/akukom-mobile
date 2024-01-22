@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:lottie/lottie.dart';
 
 import '../../utils/utils.dart';
-import '../components.dart';
+import '../__components.dart';
 
 class ErrorStateWidget extends StatelessWidget {
   static const String routeName = '/errorStateWidget';
@@ -23,13 +23,13 @@ class ErrorStateWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        verticalSpace(20),
+        vSpace(20),
         TextWidget(
           title,
           fontSize: sp(20),
           fontWeight: FontWeight.w400,
         ),
-        verticalSpace(5),
+        vSpace(5),
         // Lottie.asset(
         //   "assets/lottie/state_status/error.json",
         //   height: h(150),
@@ -37,7 +37,7 @@ class ErrorStateWidget extends StatelessWidget {
         //   repeat: false,
         //   fit: BoxFit.fill,
         // ),
-        verticalSpace(20),
+        vSpace(20),
         SizedBox(
           width: sw(75),
           child: TextWidget(
@@ -47,9 +47,9 @@ class ErrorStateWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        verticalSpace(25),
+        vSpace(25),
         Button(text: "Retry", onTap: onTap ?? () {}),
-        verticalSpace(),
+        vSpace(),
       ],
     );
   }

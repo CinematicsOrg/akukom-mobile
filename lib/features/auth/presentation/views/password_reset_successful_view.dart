@@ -1,4 +1,4 @@
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
@@ -17,12 +17,12 @@ class PasswordResetSuccessfulView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          verticalSpace(82),
+          const VSpace(82),
           const Svg(
             path: AppIcons.greenTick,
             svgType: SvgType.asset,
           ),
-          verticalSpace(24),
+          const VSpace(24),
           TextWidget(
             AppStrings.passwordResetSuccessful,
             fontSize: sp(24),
@@ -38,11 +38,13 @@ class PasswordResetSuccessfulView extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          verticalSpace(32),
+          const VSpace(32),
           Button(
             text: AppStrings.continueToLogin,
             onTap: () {
-              AppRouter.instance.navigateToAndReplace(LoginView.routeName);
+              AppRouter.instance.navigateToAndReplace(
+                LoginView.routeName,
+              );
             },
           ),
         ],

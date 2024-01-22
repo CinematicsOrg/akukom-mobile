@@ -1,5 +1,6 @@
 import 'package:akukom/cores/base_request_body/base_request_body.dart';
 import 'package:akukom/cores/failures/base.dart';
+import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,6 +30,8 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
         ));
       },
       (data) {
+        SessionManager.instance.setToken(data.data?.accessToken ?? '');
+        SessionManager.instance.saveUserData(data.data!.user!);
         emit(state.copyWith(
           status: SigninStatus.success,
           signupEntity: data,

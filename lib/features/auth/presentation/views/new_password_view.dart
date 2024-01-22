@@ -1,5 +1,5 @@
 import 'package:akukom/app/locator.dart';
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/auth/__auth.dart';
@@ -12,14 +12,14 @@ class NewPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NormalScaffoldWidget(
+    return const NormalScaffoldWidget(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
-          const AuthHeaderWidget(AppStrings.createNewPassword),
-          verticalSpace(35),
-          const _NewPasswordForm(),
+          VSpace(30),
+          AuthHeaderWidget(AppStrings.createNewPassword),
+          VSpace(35),
+          _NewPasswordForm(),
         ],
       ),
     );
@@ -62,21 +62,21 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
         return Column(
           children: [
             TextFieldWidget(
-              hintText: AppStrings.password,
-              title: AppStrings.passwordHint,
+              hintText: AppStrings.passwordHint,
+              title: AppStrings.password,
               textEditingController: _passwordController,
               onChanged: _createNewPasswordCubit.passwordChanged,
               isPassword: true,
             ),
-            verticalSpace(20),
+            const VSpace(20),
             TextFieldWidget(
-              hintText: AppStrings.confirmPassword,
-              title: AppStrings.confirmPasswordHint,
+              hintText: AppStrings.confirmPasswordHint,
+              title: AppStrings.confirmPassword,
               textEditingController: _confirmPasswordController,
               onChanged: _createNewPasswordCubit.confirmPasswordChanged,
               isPassword: true,
             ),
-            verticalSpace(20),
+            const VSpace(20),
             Align(
               alignment: Alignment.centerRight,
               child: TextWidget(
@@ -87,7 +87,7 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
                 textAlign: TextAlign.left,
               ),
             ),
-            verticalSpace(32),
+            const VSpace(32),
             BlocConsumer<ChangePasswordBloc, ChangePasswordState>(
               bloc: _changePasswordBloc,
               listener: onNewPasswordChanged,
@@ -129,7 +129,6 @@ class _NewPasswordFormState extends State<_NewPasswordForm> {
       password: passoword,
       confirmNewPassword: confirmPassword,
     );
-
 
     _changePasswordBloc.add(
       ChangePasswordButtonPressed(

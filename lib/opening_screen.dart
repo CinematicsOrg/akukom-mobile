@@ -1,4 +1,4 @@
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/utils/sizer_utils.dart';
 import 'package:akukom/opening_account_screen.dart';
 import 'package:flutter/material.dart';
@@ -55,9 +55,9 @@ class _OpeningScreenState extends State<OpeningScreen> {
               });
             },
             children: <Widget>[
-              _buildContentWidget('assets/image1.jpg'),
-              _buildContentWidget('assets/image2.jpg'),
-              _buildContentWidget('assets/image3.jpg'),
+              _buildContentWidget(AppImages.onboarding1),
+              _buildContentWidget(AppImages.onboarding2),
+              _buildContentWidget(AppImages.onboarding3),
             ],
           ),
           Positioned(
@@ -68,12 +68,11 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 width: sp(342),
                 height: sp(80),
                 child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        horizontalSpace(33),
+                        const HSpace(33),
                         ..._buildPageIndicator(),
                         SizedBox(
                           width: sp(250),
@@ -166,6 +165,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
         image: DecorationImage(
           image: AssetImage(imagePath),
           fit: BoxFit.cover,
+          filterQuality: FilterQuality.high,
         ),
       ),
       child: Container(
@@ -193,7 +193,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 fontWeight2: FontWeight.w800,
                 textAlign: TextAlign.center,
               ),
-              verticalSpace(16),
+              const VSpace(16),
               TextWidget(
                 AppStrings.bookARide,
                 fontSize: sp(kfsLarge),
@@ -201,7 +201,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 fontWeight: FontWeight.w500,
                 textAlign: TextAlign.left,
               ),
-              verticalSpace(150),
+              const VSpace(150),
             ],
           ),
         ),

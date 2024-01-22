@@ -1,5 +1,5 @@
 import 'package:akukom/app/locator.dart';
-import 'package:akukom/cores/components/components.dart';
+import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/app_router.dart';
 import 'package:akukom/cores/utils/utils.dart';
@@ -25,9 +25,9 @@ class EmalVerificationOtpView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(30),
+          const VSpace(30),
           const AuthHeaderWidget(AppStrings.verifyEmailAdress),
-          verticalSpace(15),
+          const VSpace(15),
           SizedBox(
             width: sp(328),
             child: TwoSpanTextWidget(
@@ -39,11 +39,11 @@ class EmalVerificationOtpView extends StatelessWidget {
               textColor: kcBlack700,
             ),
           ),
-          verticalSpace(77),
+          const VSpace(77),
           _VerifyEmailForm(
             email,
           ),
-          verticalSpace(50),
+          const VSpace(50),
           Align(
             alignment: Alignment.center,
             child: TwoSpanTextWidget(

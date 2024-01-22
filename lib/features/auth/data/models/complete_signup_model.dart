@@ -1,22 +1,11 @@
-import 'dart:convert';
 
 import 'package:akukom/features/auth/__auth.dart';
 
-SignupCompleteModel signupCompleteModelFromJson(String str) =>
-    SignupCompleteModel.fromJson(json.decode(str));
-
-String signupCompleteModelToJson(SignupCompleteModel data) =>
-    json.encode(data.toJson());
-
 class SignupCompleteModel extends SignupCompleteEntity {
-  final int? statusCode;
-  final String? message;
-  final User? data;
-
   const SignupCompleteModel({
-    required this.statusCode,
-    required this.message,
-    required this.data,
+    required int? statusCode,
+    required String? message,
+    required User? data,
   }) : super(
           statusCode: statusCode,
           message: message,
@@ -29,10 +18,4 @@ class SignupCompleteModel extends SignupCompleteEntity {
         message: json["message"],
         data: User?.fromJson(json["data"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "statusCode": statusCode,
-        "message": message,
-        "data": data?.toJson(),
-      };
 }

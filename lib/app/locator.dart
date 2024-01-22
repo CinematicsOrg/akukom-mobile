@@ -1,4 +1,8 @@
+import 'package:akukom/cores/shared_blocs/shared_bloc_locator.dart';
 import 'package:akukom/features/auth/auth_locator.dart';
+import 'package:akukom/features/family_group/__family_group.dart';
+import 'package:akukom/features/main_layout/main_layout_locator.dart';
+import 'package:akukom/features/profile/profile_setup_locator.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
@@ -23,11 +27,23 @@ class Locator {
     _setUp();
     _otherSetup();
 
+    // -------- Shared Blocs -------- //
+    setUpSharedBlocLocator();
+
     /// ------------- File Upload -------------//
     setUpImageUploadLocator();
 
     /// -------- Authentication -------- ///
     setupAuthLocator();
+
+    /// -------- NavBottom Bar --------- ///
+    setupMainLayoutLocator();
+
+    // -------- Profile -------- //
+    setUpProfileLocator();
+
+    /// -------- Family Group -------- ///
+    setupFamilyGroupLocator();
   }
 
   static void _otherSetup() {
