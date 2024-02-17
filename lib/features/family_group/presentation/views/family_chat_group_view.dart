@@ -8,7 +8,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FamilyGroupChatView extends StatelessWidget {
   static const String routeName = '/family-group-chat';
-  const FamilyGroupChatView({super.key});
+
+  const FamilyGroupChatView({
+    super.key,
+    required this.familyDataEntity,
+  });
+
+  final FamilyDataEntity? familyDataEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +37,33 @@ class FamilyGroupChatView extends StatelessWidget {
                   ),
                 ),
                 const HSpace(20),
-                const Svg(
-                  path: AppIcons.doubleCircleSvg,
-                ),
+                familyDataEntity?.image != null
+                    ? ClipRRect(
+                        borderRadius: BorderRadius.circular(25.r),
+                        child: Hero(
+                          tag: familyDataEntity!.image!,
+                          child: ImageWidget(
+                            imageUrl: familyDataEntity!.image!,
+                            imageTypes: ImageTypes.network,
+                            height: 50.h,
+                            width: 50.w,
+                          ),
+                        ),
+                      )
+                    : const Svg(
+                        path: AppIcons.doubleCircleSvg,
+                      ),
                 const HSpace(20),
-                TextWidget(
-                  'Family Group',
-                  fontSize: sp(kfsSuperLarge),
-                  fontWeight: FontWeight.bold,
+                Hero(
+                  tag: familyDataEntity!.name!,
+                  child: TextWidget(
+                    familyDataEntity?.name
+                            .toString()
+                            .capitalizeFirstOfEachWord ??
+                        AppStrings.na,
+                    fontSize: sp(kfsSuperLarge),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const Spacer(),
                 GestureDetector(

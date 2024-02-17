@@ -186,12 +186,15 @@ class _FamilyCardWidget extends StatelessWidget {
                   color: kcPrimaryColor,
                   shape: BoxShape.circle,
                 ),
-                child: ClipOval(
-                  child: Image.network(
-                    familyDataEntity?.image ?? AppStrings.na,
-                    height: 40.h,
-                    width: 40.w,
-                    fit: BoxFit.cover,
+                child: Hero(
+                  tag: familyDataEntity!.image!,
+                  child: ClipOval(
+                    child: Image.network(
+                      familyDataEntity?.image ?? AppStrings.na,
+                      height: 40.h,
+                      width: 40.w,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -201,10 +204,13 @@ class _FamilyCardWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextWidget(
-                      familyDataEntity?.name ?? AppStrings.na,
-                      fontSize: kfsMedium,
-                      fontWeight: FontWeight.bold,
+                    Hero(
+                      tag: familyDataEntity!.name!,
+                      child: TextWidget(
+                        familyDataEntity?.name ?? AppStrings.na,
+                        fontSize: kfsMedium,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const VSpace(4),
                     TextWidget(
@@ -228,9 +234,15 @@ class _FamilyCardWidget extends StatelessWidget {
   }
 
   void goToFamilyDetailsView() {
+    // AppRouter.instance.navigateTo(
+    //   FamilyDetailsView.routeName,
+    //   arguments: familyDataEntity,
+    // );
     AppRouter.instance.navigateTo(
-      FamilyDetailsView.routeName,
+      FamilyGroupChatView.routeName,
       arguments: familyDataEntity,
     );
+    CurrentFamilyCubit familyCubit = getIt<CurrentFamilyCubit>();
+    familyCubit.setCurrentFamily(familyDataEntity);
   }
 }

@@ -33,7 +33,8 @@ class FamilyGroupRepositoryImpl extends FamilyGroupRepository {
   }
 
   @override
-  Future<Either<Failures, CreateFamilyEntity>> createFamily(CreateFamilyParam param) {
+  Future<Either<Failures, CreateFamilyEntity>> createFamily(
+      CreateFamilyParam param) {
     final action = familyGroupRemoteDataSource.createFamily(
       param,
     );
@@ -73,7 +74,8 @@ class FamilyGroupRepositoryImpl extends FamilyGroupRepository {
   }
 
   @override
-  Future<Either<Failures, FamilyUserCanJoinEntity>> listFamilyUserCanJoin(ListFamilyUserCanJoinParam param) {
+  Future<Either<Failures, FamilyUserCanJoinEntity>> listFamilyUserCanJoin(
+      ListFamilyUserCanJoinParam param) {
     final action = familyGroupRemoteDataSource.listFamilyUserCanJoin(
       param,
     );
@@ -129,6 +131,27 @@ class FamilyGroupRepositoryImpl extends FamilyGroupRepository {
     );
 
     final repoTryCatchHelper = RepoTryCatchHelper<UsersListModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, BaseEntity>> createFamilyEvent(
+      CreateFamilyEventsParams param) {
+    final action = familyGroupRemoteDataSource.createFamilyEvent(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<BaseModel>();
+    return repoTryCatchHelper.tryAction(() => action);
+  }
+
+  @override
+  Future<Either<Failures, FamilyEventListEntity>> getFamilyEvents(NoParams param) {
+    final action = familyGroupRemoteDataSource.getFamilyEvents(
+      param,
+    );
+
+    final repoTryCatchHelper = RepoTryCatchHelper<FamilyEventListModel>();
     return repoTryCatchHelper.tryAction(() => action);
   }
 }

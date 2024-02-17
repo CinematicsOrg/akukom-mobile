@@ -76,6 +76,15 @@ void setupFamilyGroupLocator() {
         familyGroupRepository: getIt<FamilyGroupRepository>()),
   );
 
+  getIt.registerLazySingleton(
+    () => CreateFamilyEventUseCase(repository: getIt<FamilyGroupRepository>()),
+  );
+
+  getIt.registerLazySingleton(
+    () => GetFamilyEventsUseCase(
+        familyGroupRepository: getIt<FamilyGroupRepository>()),
+  );
+
   // cubit
   getIt.registerFactory(
     () => CreateFamilyFormCubit(),
@@ -83,6 +92,14 @@ void setupFamilyGroupLocator() {
 
   getIt.registerLazySingleton(
     () => AddFamilyMemberListCubit(),
+  );
+
+  getIt.registerLazySingleton(
+    () => CreateEventCubit(),
+  );
+
+  getIt.registerLazySingleton(
+    () => CurrentFamilyCubit(),
   );
 
   //blocs
@@ -119,6 +136,18 @@ void setupFamilyGroupLocator() {
   getIt.registerLazySingleton(
     () => GetUserFamilyBloc(
       getUserFamilyUseCase: getIt<GetUserFamilyUseCase>(),
+    ),
+  );
+
+  getIt.registerLazySingleton(
+    () => GetFamilyEventsBloc(
+      getFamilyEventsUseCase: getIt<GetFamilyEventsUseCase>(),
+    ),
+  );
+
+  getIt.registerFactory(
+    () => CreateFamilyEventBloc(
+      createFamilyEventUseCase: getIt<CreateFamilyEventUseCase>(),
     ),
   );
 }

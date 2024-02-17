@@ -44,4 +44,7 @@ class AppIcons {
   static const String cameraSvg = '$_dir/camera.svg';
   static const String shareSvg = '$_dir/share.svg';
   static const String vertSvg = '$_dir/vert.svg';
+
+  // events
+  static const String createEventDefaultSvg = '$_dir/create_event_default.svg';
 }

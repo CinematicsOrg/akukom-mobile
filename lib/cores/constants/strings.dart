@@ -200,4 +200,5 @@ class AppStrings {
   static const String na = 'N/A';
   static const String defaultImage =
       'https://storage.googleapis.com/timelifeapp-d1475.appspot.com/1705164095956-family-image-Screenshot%202021-06-10%20at%208.44.08%20AM.png?GoogleAccessId=firebase-adminsdk-diu18%40timelifeapp-d1475.iam.gserviceaccount.com&Expires=16447017600&Signature=QBDZoWXklXkyunIyl33glqKNVpOkKPJs56%2BQaX1dJeuSbwDSCtCqeWh%2FPmpcqWIDjnOgseMlCX6%2FLp9qs0mH7GAn%2FXOWth5VD1VeLv2tttheKjZ985OdnHU%2Bjz1qsHg8LO23M5RBMDK7Ro48Mc4SgSZtTvL3ipktyqY%2F5g7L%2Fg%2BilRwHs10LZ6wZzbYp383Rbm82nsnwIlSZu3bLCbK%2BC2er6e8L0eDsW7teKQD%2FvzafMloDWR1ONHJYnAgaECG9GRQ0FckdgS4fztLBEB0Q6l0KDTamVKrcwI9EIrwa6i1I734ucmz8kmgwr58r3jqPdHdiLAo9U4kJ7GpwcjhQxw%3D%3D';
+  static const String eventCreated = 'Event created';
 }

@@ -6,6 +6,7 @@ import 'package:akukom/cores/components/__components.dart';
 import 'package:akukom/cores/components/toast.dart';
 import 'package:akukom/cores/constants/__constants.dart';
 import 'package:akukom/cores/navigator/navigator.dart';
+import 'package:akukom/cores/usecase/params.dart';
 import 'package:akukom/cores/utils/utils.dart';
 import 'package:akukom/features/family_group/__family_group.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +104,7 @@ class __CreateFamilyFormState extends State<_CreateFamilyForm> {
           return Column(
             children: [
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(
                     8,
@@ -116,13 +117,14 @@ class __CreateFamilyFormState extends State<_CreateFamilyForm> {
                           ) // SVG for null case
                         : ClipRRect(
                             borderRadius: BorderRadius.circular(
-                              20,
+                              20.r,
                             ),
                             child: SizedBox(
                               height: 200.h,
-                              width: 200.w,
+                              width: 300.w,
                               child: Image.file(
                                 File(familyImage.path),
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
@@ -288,7 +290,13 @@ extension on __CreateFamilyFormState {
           state.message ?? '',
         );
         addFamilyMemberListCubit.resetFamilyMembers();
-        AppRouter.instance.navigateToAndReplace(FamilyGroupChatView.routeName);
+        Navigator.pop(context);
+        Navigator.pop(context);
+        getIt<GetUserFamilyBloc>().add(
+          const GetUserFamilyUserEvent(
+            param: NoParams(),
+          ),
+        );
       } else if (state.status == AddFamilyMembersStatus.failure) {
         Toast.showError(
           state.message ?? '',

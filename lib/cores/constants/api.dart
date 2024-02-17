@@ -83,4 +83,9 @@ class ApiEndpoints {
       '$_baseUrlV1/family/accept-pending-requests';
   static final String getUserFamily = '$_baseUrlV1/family/get-users-family';
   static final String getUsers = '$_baseUrlV1/profile/get-users';
+
+  /// Family Event
+  static final String createFamilyEvent =
+      '$_baseUrlV1/family/create-family-event/';
+  static final String getFamilyEvents = '$_baseUrlV1/family/get-family-events';
 }

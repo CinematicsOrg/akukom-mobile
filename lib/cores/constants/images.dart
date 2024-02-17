@@ -13,4 +13,7 @@ class AppImages {
 
   // Verification Images
   static const String bigGreenTick = '$_dir/big_green_tick.png';
+
+  // family event
+  static const String createEventDefault = '$_dir/create_event_default.png';
 }

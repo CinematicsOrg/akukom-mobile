@@ -10,3 +10,5 @@ export 'request_to_join_family_usecase.dart';
 export 'update_family_usecase.dart';
 export 'user_in_family_usecase.dart';
 export 'get_users_use_case.dart';
+export 'get_family_event_usecase.dart';
+export 'create_family_events_usecase.dart';

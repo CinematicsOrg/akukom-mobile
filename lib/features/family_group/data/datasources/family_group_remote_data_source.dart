@@ -19,6 +19,8 @@ abstract class FamilyGroupRemoteDataSource {
   Future<BaseModel> acceptOrRejectRequest(RequestParam param);
   Future<UserFamilyListModel> getUserFamily(NoParams param);
   Future<UsersListModel> getUsers(GetUsersParam param);
+  Future<BaseModel> createFamilyEvent(CreateFamilyEventsParams param);
+  Future<FamilyEventListModel> getFamilyEvents(NoParams param);
 }
 
 class FamilyGroupRemoteDataSourceImpl implements FamilyGroupRemoteDataSource {
@@ -140,5 +142,26 @@ class FamilyGroupRemoteDataSourceImpl implements FamilyGroupRemoteDataSource {
     );
 
     return UsersListModel.fromJson(response);
+  }
+
+  @override
+  Future<BaseModel> createFamilyEvent(CreateFamilyEventsParams param) async {
+    final Map<String, dynamic> response =
+        await httpHelper.postMultipartWithFields(
+      url: '${ApiEndpoints.createFamilyEvent}${param.id}',
+      files: [await param.toFileMapEntry()],
+      fields: await param.toFieldsMap(),
+    );
+
+    return BaseModel.fromMap(response);
+  }
+
+  @override
+  Future<FamilyEventListModel> getFamilyEvents(NoParams param) async {
+    final Map<String, dynamic> response = await httpHelper.get(
+      ApiEndpoints.getFamilyEvents,
+    );
+
+    return FamilyEventListModel.fromJson(response);
   }
 }

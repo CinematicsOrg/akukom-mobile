@@ -1,7 +1,16 @@
 import 'package:akukom/cores/constants/__constants.dart';
+import 'package:intl/intl.dart';
 
 extension StringExtension on String {
   String get capitalizeFirstLetter => '${this[0].toUpperCase()}${substring(1)}';
+  // capitalize first of each word
+  String get capitalizeFirstOfEachWord {
+    final words = split(' ');
+    final capitalized = words.map((word) {
+      return '${word[0].toUpperCase()}${word.substring(1)}';
+    });
+    return capitalized.join(' ');
+  }
 }
 
 extension NavBarExtension on NavBarType {
@@ -121,6 +130,62 @@ extension FamilyRequestTypeExtension on FamilyRequestType {
         return AppIcons.shareSvg;
       case FamilyRequestType.addFamily:
         return AppIcons.addSvg;
+    }
+  }
+}
+
+extension DateTimeFormatting on DateTime {
+  String get formattedDate {
+    return DateFormat('E, MMM dd yyyy').format(this);
+  }
+
+  String get formattedDateTime {
+    return DateFormat('hh:mm a E, MMM dd yyyy').format(this);
+  }
+
+  String get formattedDateTimeShort {
+    return DateFormat('MMM d, hh:mm a').format(this);
+  }
+
+  String get formattedDay {
+    return DateFormat('EEE, MMM d').format(this);
+  }
+
+  String get formattedDateYYMMDD {
+    return DateFormat('yyyy-MM-dd').format(this);
+  }
+
+  String get formattedDateYYMMDDTime {
+    return DateFormat('yyyy-MM-dd hh:mm').format(this);
+  }
+
+  // get remaining time from now to the date in min hours days or weeks
+  String timeAgo({
+    bool numericDates = true,
+    bool withTime = false,
+  }) {
+    final date2 = DateTime.now();
+    final difference = date2.difference(this);
+    final time = DateFormat('hh:mm a').format(this);
+
+    if ((difference.inDays / 7).floor() >= 1) {
+      return (numericDates) ? '1 week ago - $time' : 'Last week - - $time';
+    } else if (difference.inDays >= 2) {
+      return '${difference.inDays} days ago - $time';
+    } else if (difference.inDays >= 1) {
+      return (numericDates) ? '1 day ago - $time' : 'Yesterday - $time';
+    } else if (difference.inHours >= 2) {
+      return '${difference.inHours} hours ago - $time';
+    } else if (difference.inHours >= 1) {
+      return (numericDates) ? '1 hour ago - $time' : 'An hour ago - $time';
+    } else if (difference.inMinutes >= 2) {
+      return '${difference.inMinutes} minutes ago';
+    } else if (difference.inMinutes >= 1) {
+      return (numericDates) ? '1 minute ago' : 'A minute ago';
+    } else if (difference.inSeconds >= 3) {
+      return '${difference.inSeconds} seconds ago';
+    } else {
+      return 'Just now';
     }
   }
 }

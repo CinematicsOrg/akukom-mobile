@@ -26,7 +26,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     super.initState();
   }
 
-  Widget navBarItem(NavBarType item,) {
+  Widget navBarItem(
+    NavBarType item,
+  ) {
     final isActive = AppConstants.navbarItems.indexOf(item) == _currentIndex;
 
     return GestureDetector(
@@ -56,8 +58,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     );
                   } else {
                     return const Icon(
-                      Icons.person,
-                      size: 48,
+                      Icons.person_2_rounded,
+                      size: 30,
                     );
                   }
                 },

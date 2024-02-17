@@ -1,4 +1,5 @@
 import 'package:formz/formz.dart';
+import 'package:image_picker/image_picker.dart';
 
 enum RequiredValidationError { invalid }
 
@@ -44,8 +45,6 @@ class RequiredInt extends FormzInput<int, RequiredValidationError> {
   }
 }
 
-
-
 class RequiredBool extends FormzInput<bool, RequiredValidationError> {
   const RequiredBool.pure([bool value = false]) : super.pure(value);
   const RequiredBool.dirty([bool value = false]) : super.dirty(value);
@@ -56,6 +55,34 @@ class RequiredBool extends FormzInput<bool, RequiredValidationError> {
       return null;
     } else {
       return RequiredValidationError.invalid;
+    }
+  }
+}
+
+class RequiredDateTime extends FormzInput<DateTime?, RequiredValidationError> {
+  const RequiredDateTime.pure([DateTime? value]) : super.pure(value);
+  const RequiredDateTime.dirty([DateTime? value]) : super.dirty(value);
+
+  @override
+  RequiredValidationError? validator(DateTime? value) {
+    if (value != null) {
+      return null; // Valid
+    } else {
+      return RequiredValidationError.invalid; // Invalid
+    }
+  }
+}
+
+class RequiredXFile extends FormzInput<XFile?, RequiredValidationError> {
+  const RequiredXFile.pure([XFile? value]) : super.pure(value);
+  const RequiredXFile.dirty([XFile? value]) : super.dirty(value);
+
+  @override
+  RequiredValidationError? validator(XFile? value) {
+    if (value != null) {
+      return null; // Valid
+    } else {
+      return RequiredValidationError.invalid; // Invalid
     }
   }
 }

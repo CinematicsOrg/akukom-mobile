@@ -17,7 +17,7 @@ import 'error_route_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    // final Object? args = settings.arguments;
+    final Object? args = settings.arguments;
 
     switch (settings.name) {
       case SplashScreen.routeName:
@@ -102,7 +102,9 @@ class RouteGenerator {
         return pageRoute(const AddFamilyMembersView());
 
       case FamilyGroupChatView.routeName:
-        return pageRoute(const FamilyGroupChatView());
+        return pageRoute(FamilyGroupChatView(
+          familyDataEntity: args as FamilyDataEntity,
+        ));
 
       case FamilyEventView.routeName:
         return pageRoute(const FamilyEventView());
